@@ -1,0 +1,373 @@
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  width: 100%;
+  background-color:#404040;
+  top: 0;
+}
+
+#container {
+
+background-image:url("../Images/img-bg1.jpg"); 
+ width: 75%;
+ height: auto; 
+ margin:auto;
+ 
+}
+
+/* style header */
+ header {
+left: 0;
+width: 100%;
+}
+
+#logosa{
+width: 4%;
+top: 0;
+float: left;
+ } 
+
+ nav {
+width :100%;
+height: 70px;
+background-color: #042425;
+}
+
+nav span {
+ color: white;
+font-size: 40px;
+float: left; 
+margin-left: 30%;
+}
+
+
+.inset {
+  margin-top: 1%;
+  margin-left:2%;
+  width :96%;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+#milieu {
+  padding: 3em 1em;
+  background: #F2F2F2; 
+  
+}
+
+.droite {
+width:80%;
+margin-left: 2%;
+
+}
+
+#bleu { 
+  border:2px solid  #51BFD0;
+  height:450px;
+  width: 60%;
+  border-radius: 8%;
+  margin-left: 2%;
+
+}
+.gauche {
+width:20%;
+
+  /*box-shadow: 1px 1px 12px #555;
+   border-top-left-radius: 1%;
+  border-top-right-radius:2%;*/
+  position: absolute;
+  margin-top: -35%;
+  margin-left: 43%;  
+}
+
+.login-head {
+  /*padding: 2em 0;*/
+  background: #51BFD0;
+  position:relative;
+}
+
+.login-head h1 {
+  color: #fff;
+  font-size: 1.3em;
+  text-align: left;
+  margin-left:12%;
+  /*margin: 0 23px;*/
+}
+
+.login-head span {
+  color: white;
+  font-size: 15px;
+  position: absolute;
+  font-weight: bold;
+  margin-top: 5%;
+  margin-left: -5%;
+}
+
+
+.deconnect {
+  color: white;
+  background-color: #3addd6;
+  border-radius: 6px;
+  width: 15%;
+  height: 40px;
+  margin-top: -100px;
+  margin-left: 80%;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-weight:bold;
+  font-size: 16px;
+}
+
+/* style aside */
+#sidebar a, #sidebar a:hover, #sidebar a:focus {
+    color: black;
+    text-decoration: none;
+    transition: all 0.3s;
+    width: 128%;
+}
+
+#sidebar ul {
+  list-style: none;
+  left: 0;
+}
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+
+#sidebar ul li a {
+  padding: 10px;
+  font-size: 1.2em;
+  display: block;
+ /* border-left: 3px solid #e9ebee;*/
+}
+
+#sidebar ul li a img{
+float: right;
+
+}
+/*#sidebar ul li a:hover {
+  border-left: 3px solid #009688;
+  color: #1d2129;
+  background: #F2F2F2;
+}*/
+
+
+#sidebar ul li.active>a, a[aria-expanded="true"] {
+  border-left: 3px solid #009688;
+  color: #1d2129;
+  background-color: #F2F2F2;
+}
+
+#sidebar ul li .active>a {
+  color: #009688;
+}
+
+.profiler{
+  width: 5%;
+  height: 5%;
+border-radius: 50% ;
+border: 2px solid white;
+float: left;
+}
+
+
+/* style liste joueurs  */
+
+.droite-content  {
+/*  box-shadow: 1px 1px 12px #555;*/
+  background: #fff;
+  border-radius: 15px;
+  -o-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  margin-left: -3%;
+  margin-top: -5%;
+  position: relative;
+  width: 126%;
+  height: 500px;
+ /*display: flex;*/
+/*display: -webkit-flex;*/
+
+}
+
+
+/* style panel */ 
+.tabinator {
+  background: #fff;
+  padding: 15px;
+  font-family: Open Sans;
+  width: 110%;
+
+}
+
+.tabinator input {
+  display: none;
+  box-shadow: 1px 1px 12px #555;
+   border-top-left-radius: 1%;
+  border-top-right-radius:2%
+}
+.tabinator label {
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 10px 10px;
+  margin-bottom: -1px;
+  margin-left: -1px;
+  font-size: 13px;
+}
+.tab2{
+  color: #51BFD0;
+  font-weight: bold;
+}
+.tab1{
+  color: #51BFD0;
+  font-weight: bold;
+}
+.tabinator label:hover {
+  color: #51BFD0;
+  cursor: pointer;
+}
+.tabinator input:checked + label {
+  position: relative;
+  color: #000;
+  background: #fff;
+  border: 1px solid #bbb;
+  border-bottom: 1px solid #fff;
+  border-radius: 5px 5px 0 0;
+}
+.tabinator input:checked + label:after {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  box-shadow: 0 0 15px #939393;
+}
+#content1, #content2 {
+  display: none;
+  border-top: 1px solid #bbb;
+  padding: 15px;
+  height: 280px;
+}
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2 {
+  display: block;
+  box-shadow: 0 0 15px #939393;
+}
+
+
+#prev {
+    display:none;
+}
+
+#start {
+    display:none;
+    
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+/* fin style inscription */
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+@media ( max-width : 768px) {
+  #sidebar a {
+    color: #fff;
+  }
+  #sidebar ul li.active>a, a[aria-expanded="true"] {
+  color: #1d2129 !important;
+  background-color: #fff;
+}
+  #sidebar {
+    margin-left: -250px;
+    width: 250px;
+    color: #fff;
+    background: #009688;
+    overflow-y: scroll;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: -250px;
+    height: 100vh;
+    z-index: 999;
+  }
+  #sidebar.active {
+    margin-left: 0;
+    left: 0;
+  }
+  #sidebar .sidebar-header {
+    display: block;
+    padding: 20px;
+  }
+  #sidebar ul li a, #sidebar ul li a:hover, #sidebar ul li.active>a, a[aria-expanded="true"]
+    {
+    border-left: none;
+  }
+
+
+/* fin style aside */ 
+
+
+
+
+
+
+@media (max-width:320px){
+.login-head {
+  padding: 1.45em 0;
+  }
+  .login-head h1 {
+  font-size: 1.15em;
+  }
+  .icon {
+    margin: -33px 9px 9px 0px;
+  }
+
+  input[type="text"], input[type="password"] {
+    font-size: 16px;
+  }
+  .alert-close {
+  right: 12px;
+  top: 22px;
+  }
+  form {
+  padding: 1.5em 1.5em;
+  }
+  .submit {
+  padding-top: 0.4em;
+  }
+  input[type="submit"] {
+    float:none;
+  padding: 11px 0px;
+  width: 52%;
+  font-size: 15px;
+  }
+  .submit h4 {
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+
+  .submit h4 a {
+  float: none;
+  font-size: 15px;
+  }
+ 
+
+}
+  
+
+
+
+
+

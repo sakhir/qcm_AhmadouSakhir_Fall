@@ -1,0 +1,205 @@
+body {
+  width: 100%;
+  background-color:#404040;
+  top: 0;
+}
+
+#container {
+
+background-image:url("../Images/img-bg1.jpg"); 
+ width: 75%;
+ height: 570px; 
+ margin:auto;
+ 
+}
+
+/* style header */
+ header {
+left: 0;
+width: 100%;
+}
+
+#logosa{
+width: 4%;
+top: 0;
+float: left;
+ } 
+
+ nav {
+width :100%;
+height: 70px;
+background-color: #042425;
+}
+nav span {
+ color: white;
+font-size: 40px;
+float: left; 
+margin-left: 30%;
+}
+
+.error-form {
+  color: red;
+  font-weight: bold;
+}
+
+.inset {
+  margin-top: 6%;
+  margin-left:30%;
+  width :40%;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+.login-head {
+  padding: 2em 0;
+  background: #51BFD0;
+  position:relative;
+}
+.login-head h1 {
+  color: #fff;
+  font-size: 1.5em;
+  text-align: left;
+  margin: 0 23px;
+}
+form {
+  padding: 3em 2em;
+  background: #F2F2F2;
+  
+}
+form li{
+  border: 2px ridge rgba(187, 185, 189, 0.11);
+  border-radius: 0.3em;
+  -webkit-border-radius:0.3em;
+  -moz-border-radius:0.3em;
+  -o-border-radius:0.3em;
+  list-style:none;
+  margin-bottom:12px;
+  background:#F0EEF0;
+
+}
+.icon{
+
+  height:30px;
+  width:30px;
+  display: block;
+  float: right;
+  margin: 12px 9px 9px 0px;
+}
+.user{
+  background: url(../images/Icônes/ic-login.png) no-repeat 7px 1px;
+  
+}
+.lock{
+  background: url("../images/Icônes/ic-lock.png") no-repeat ;
+}
+
+input[type="text"], input[type="password"] {
+  font-family: 'Droid Sans', sans-serif;
+  width:70%;
+  padding: 0.5em 2em 0.5em 1em;
+  color: #B8B8B8;
+  font-size:20px;
+  outline: none;
+  background: none;
+  border:none;
+}
+input[type="text"]:hover, input[type="password"]:hover{
+  color:#51BFD0;
+  
+}
+.submit h4 a{
+  float:left;
+  font-size: 17px;
+  color: #999;
+  font-weight: 400;
+  font-family: 'Droid Sans', sans-serif;
+  margin-top: 15px;
+  margin-left: 21px;
+}
+.submit h4 a:hover{
+  color:#51BFD0;
+}
+/*************************/
+.submit{
+  padding-top:3em;
+}
+input[type="submit"] {
+  float: left;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 900;
+  outline: none;
+  font-family: 'Raleway', sans-serif;
+  padding: 12px 0px;
+  width: 45%;
+  font-size: 18px;
+  background:#51BFD0;
+  border:2px solid #51BFD0;
+  border-radius: 0.5em;
+  -webkit-border-radius:0.5em;
+  -moz-border-radius:0.5em;
+  -o-border-radius:0.5em;
+}
+input[type="submit"]:hover {
+  background: #fff;
+  color:#51BFD0;
+  border:2px solid #51BFD0;
+}
+
+.alert-close {
+  background: url('../images/Icônes/close.png') no-repeat ;
+  cursor: pointer;
+  height: 30px;
+  position: absolute;
+  right: 12px;
+  top: 34px;
+  -webkit-transition: color 0.2s ease-in-out;
+  -moz-transition: color 0.2s ease-in-out;
+  -o-transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
+  width: 30px;
+}
+
+
+@media (max-width:320px){
+  
+  .login-head {
+  padding: 1.45em 0;
+  }
+  .login-head h1 {
+  font-size: 1.15em;
+  }
+  .icon {
+    margin: -33px 9px 9px 0px;
+  }
+  input[type="text"], input[type="password"] {
+    font-size: 16px;
+  }
+  .alert-close {
+  right: 12px;
+  top: 22px;
+  }
+  form {
+  padding: 1.5em 1.5em;
+  }
+  .submit {
+  padding-top: 0.4em;
+  }
+  input[type="submit"] {
+    float:none;
+  padding: 11px 0px;
+  width: 52%;
+  font-size: 15px;
+  }
+  .submit h4 {
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+  .submit h4 a {
+  float: none;
+  font-size: 15px;
+  }
+  
+  
+}

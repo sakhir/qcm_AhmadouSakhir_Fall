@@ -1,0 +1,289 @@
+body {
+  width: 100%;
+  background-color:#404040;
+  top: 0;
+}
+
+#container {
+
+background-image:url("../Images/img-bg1.jpg"); 
+ width: 75%;
+ height: auto; 
+ margin:auto;
+ 
+}
+
+/* style header */
+ header {
+left: 0;
+width: 100%;
+}
+
+#logosa{
+width: 4%;
+top: 0;
+float: left;
+ } 
+
+ nav {
+width :100%;
+height: 70px;
+background-color: #042425;
+}
+nav span {
+ color: white;
+font-size: 40px;
+float: left; 
+margin-left: 30%;
+}
+
+
+.inset {
+  margin-top: 1%;
+  margin-left:2%;
+  width :96%;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+#pnom {
+
+color: white;
+font-weight: bold;
+font-size: 20px;
+}
+.degrade {
+  
+  background: #51BFD0;
+  position:relative;
+  left: 0;
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 8%;
+  border-top-right-radius:8%;
+  background-image:linear-gradient(white, #51BFD0);
+}
+#milieu {
+  padding: 3em 2em;
+  background: #F2F2F2; 
+  
+}
+.gauche {
+width:30%;
+  box-shadow: 1px 1px 12px #555;
+   border-top-left-radius: 8%;
+  border-top-right-radius:8%;
+}
+.droite {
+width:70%;
+margin-left: 25%;
+margin-top: -33%;
+
+}
+
+.login-head {
+  padding: 2em 0;
+  background: #51BFD0;
+  position:relative;
+}
+.login-head h1 {
+  color: #fff;
+  font-size: 1.5em;
+  text-align: center;
+  margin: 0 23px;
+}
+
+
+
+.deconnect {
+  color: white;
+  background-color: #3addd6;
+  border-radius: 6px;
+  width: 15%;
+  height: 40px;
+  margin-top: -6%;
+  margin-left: 80%;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-weight:bold;
+  font-size: 16px;
+}
+.menu {
+  background-color:white;
+  width: 100%;
+  display:flex;
+  padding-left: 0; 
+
+}
+/* style aside */
+#sidebar a, #sidebar a:hover, #sidebar a:focus {
+    color: black;
+    text-decoration: none;
+    transition: all 0.3s;
+    width: 128%;
+}
+
+#sidebar ul {
+  list-style: none;
+  left: 0;
+}
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+
+#sidebar ul li a {
+  padding: 10px;
+  font-size: 1.2em;
+  display: block;
+ /* border-left: 3px solid #e9ebee;*/
+}
+
+#sidebar ul li a img{
+float: right;
+}
+/*#sidebar ul li a:hover {
+  border-left: 3px solid #009688;
+  color: #1d2129;
+  background: #F2F2F2;
+}*/
+
+
+#sidebar ul li.active>a, a[aria-expanded="true"] {
+  border-left: 3px solid #009688;
+  color: #1d2129;
+  background-color: #F2F2F2;
+}
+
+#sidebar ul li .active>a {
+  color: #009688;
+}
+
+.profiler{
+  width: 30%;
+  height: 70%;
+border-radius: 50% ;
+border: 2px solid white;
+margin-left: 4%;
+margin-top: 3%;
+
+}
+
+
+/* style liste joueurs  */
+
+.droite-content  {
+  box-shadow: 1px 1px 12px #555;
+  background: #fff;
+  border-radius: 15px;
+  -o-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  margin-left: 15%;
+  margin-top: -30%;
+  position: relative;
+  width: 85%;
+  height: 500px;
+  padding-top: 30px;
+ /*display: flex;*/
+/*display: -webkit-flex;*/
+
+}
+#bleu { 
+  border:2px solid  #51BFD0;
+  height:400px;
+  width: 80%;
+  border-radius: 8%;
+  margin-left: 10%;
+  margin-top: 2%;
+
+}
+
+
+/* fin style inscription */
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+@media ( max-width : 768px) {
+  #sidebar a {
+    color: #fff;
+  }
+  #sidebar ul li.active>a, a[aria-expanded="true"] {
+  color: #1d2129 !important;
+  background-color: #fff;
+}
+  #sidebar {
+    margin-left: -250px;
+    width: 250px;
+    color: #fff;
+    background: #009688;
+    overflow-y: scroll;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: -250px;
+    height: 100vh;
+    z-index: 999;
+  }
+  #sidebar.active {
+    margin-left: 0;
+    left: 0;
+  }
+  #sidebar .sidebar-header {
+    display: block;
+    padding: 20px;
+  }
+  #sidebar ul li a, #sidebar ul li a:hover, #sidebar ul li.active>a, a[aria-expanded="true"]
+    {
+    border-left: none;
+  }
+
+
+/* fin style aside */ 
+
+
+@media (max-width:320px){
+  
+  .login-head {
+  padding: 1.45em 0;
+  }
+  .login-head h1 {
+  font-size: 1.15em;
+  }
+  .icon {
+    margin: -33px 9px 9px 0px;
+  }
+  input[type="text"], input[type="password"] {
+    font-size: 16px;
+  }
+  .alert-close {
+  right: 12px;
+  top: 22px;
+  }
+  form {
+  padding: 1.5em 1.5em;
+  }
+  .submit {
+  padding-top: 0.4em;
+  }
+  input[type="submit"] {
+    float:none;
+  padding: 11px 0px;
+  width: 52%;
+  font-size: 15px;
+  }
+  .submit h4 {
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+  .submit h4 a {
+  float: none;
+  font-size: 15px;
+  }
+  .footer {
+  left: 22%;
+  bottom: 59px;
+  }
+  
+}
