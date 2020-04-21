@@ -15,7 +15,7 @@ if (!isset($_SESSION['user']) || $_SESSION['profil']==='joueur' ) {
 <html>
 <head>
 	<title> ListeJoueurs</title>
-	<link rel="stylesheet" type="text/css" href="../css/listejoueurs.css">
+	<link rel="stylesheet" type="text/css" href="../css/listejoueurs.css?v=1">
 
 </head>
 <body>

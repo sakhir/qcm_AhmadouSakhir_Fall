@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title> Page d'inscription</title>
-	<link rel="stylesheet" type="text/css" href="../css/inscription.css">
+	<link rel="stylesheet" type="text/css" href="../css/inscription.css?v=1">
 
 </head>
 <body>

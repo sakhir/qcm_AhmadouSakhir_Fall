@@ -9,13 +9,14 @@ if (!isset($_SESSION['user']) || $_SESSION['profil']==='admin' ) {
     die();
  
 }
+
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<title> Espace Joueur</title>
-	<link rel="stylesheet" type="text/css" href="../css/Espjoueur.css">
+	<link rel="stylesheet" type="text/css" href="../css/Espjoueur.css?v=1">
 
 </head>
 <body>
@@ -37,7 +38,7 @@ if (!isset($_SESSION['user']) || $_SESSION['profil']==='admin' ) {
     echo $_SESSION['prenom'].' '.$_SESSION['nom'] ; }?></span> </div>
     <h1> BIENVENUE SUR LA PLATEFORME DE JEU DE QUIZZ <br>JOUER ET TESTER VOTRE NIVEAU DE CULTURE GENERALE </h1>
     
-     <a href="deconnect.php"> <input  class="deconnect" type="button" name="deconnect" value="Deconnexion"> </a>
+     <a  href="deconnect.php"> <input  class="deconnect" type="button" name="deconnect" value="Deconnexion"> </a>
          
   </div>
   
@@ -143,7 +144,9 @@ echo '</table>';
 
                 </div>
                 <div id = "content2">
-                  <p>Joueur joueur 3000 pts
+                  <p style="font-size: 18px;font-weight: bold;"><?php if (isset($_SESSION['nom']) and isset($_SESSION['prenom']) )
+    {
+     echo $_SESSION['prenom'].' '.$_SESSION['nom'].'  3000 pts' ; }?>
                   </p>
                 </div>
   

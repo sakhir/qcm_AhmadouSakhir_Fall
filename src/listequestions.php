@@ -15,7 +15,7 @@ if (!isset($_SESSION['user']) || $_SESSION['profil']==='joueur' ) {
 <html>
 <head>
 	<title> Liste question</title>
-	<link rel="stylesheet" type="text/css" href="../css/listequestion.css">
+	<link rel="stylesheet" type="text/css" href="../css/listequestion.css?v=1">
 </head>
 <body>
 <div id="container">

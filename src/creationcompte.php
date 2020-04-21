@@ -15,7 +15,7 @@ if (!isset($_SESSION['user']) || $_SESSION['profil']==='joueur' ) {
 <html>
 <head>
 	<title> Creation de compte</title>
-	<link rel="stylesheet" type="text/css" href="../css/creationcompte.css">
+	<link rel="stylesheet" type="text/css" href="../css/creationcompte.css?v=1">
 </head>
 <body>
 <div id="container">

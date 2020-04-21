@@ -15,8 +15,8 @@ if (!isset($_SESSION['user']) || $_SESSION['profil']==='joueur' ) {
 <html>
 <head>
 	<title> Creation de question</title>
-	<link rel="stylesheet" type="text/css" href="../css/creerquestion.css">
-  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/creerquestion.css?v=1">
+ 
 
 </head>
 <body>
