@@ -73,9 +73,43 @@ if (!isset($_SESSION['user']) || $_SESSION['profil']==='joueur' ) {
        <div id="bleu">
            <!-- debut liste des joueurs  -->
 <?php 
+
+// fonction de tri bulle 
+
+function triBulleDecroissant($tab) {
+    
+   $tampon = 0;
+   $permut;
+ 
+    do {
+      // hypothèse : le tableau est trié
+      $permut = false;
+      for ( $i = 0; $i < count($tab) - 1; $i++) {
+        // Teste si 2 éléments successifs sont dans le bon ordre ou non
+        if (  intval($tab[$i]['score']) < intval($tab[$i+1]['score']) ) {
+
+          // s'ils ne le sont pas, on échange leurs positions
+          $tampon = $tab[$i];
+          $tab[$i] = $tab[$i + 1];
+          $tab[$i+1] =$tampon;
+          $permut = true;
+        }
+      }
+    } while ($permut);
+    return $tab;
+  }
+// fin fonction de tri 
+
       
        $inp = file_get_contents('../json/gamers.json');
                 $tab= json_decode($inp,true);
+                $tab=triBulleDecroissant($tab);
+
+
+
+                
+                //rsort($tab);
+                
                               
 
 $page = ! empty( $_GET['page'] ) ? (int) $_GET['page'] : 1;

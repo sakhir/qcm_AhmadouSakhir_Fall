@@ -80,27 +80,56 @@ if (!isset($_SESSION['user']) || $_SESSION['profil']==='admin' ) {
                 <label for = "tab2" class="tab2">Mon meilleur score</label>
                 <div id = "content1">
                   <?php 
-      
+    // fonction de tri bulle 
+
+function triBulleDecroissant($tab) {
+    
+   $tampon = 0;
+   $permut;
+ 
+    do {
+      // hypothèse : le tableau est trié
+      $permut = false;
+      for ( $i = 0; $i < count($tab) - 1; $i++) {
+        // Teste si 2 éléments successifs sont dans le bon ordre ou non
+        if (  intval($tab[$i]['score']) < intval($tab[$i+1]['score']) ) {
+
+          // s'ils ne le sont pas, on échange leurs positions
+          $tampon = $tab[$i];
+          $tab[$i] = $tab[$i + 1];
+          $tab[$i+1] =$tampon;
+          $permut = true;
+        }
+      }
+    } while ($permut);
+    return $tab;
+  }
+// fin fonction de tri 
+
                 $inp = file_get_contents('../json/gamers.json');
                 $tab= json_decode($inp,true);
+                $tab=triBulleDecroissant($tab);
                 $NbrCol = 3;
 $NbrLigne=5;
-echo '<table border="0" width="200">';
+echo '<table border="0" width="285">';
+$couleur = array('#50DAC2','#6AD7D1','#F8B106','#EF7E05','#EEEEEE');
 
 for ($i=0; $i< $NbrLigne; $i++) {
   if (!empty($tab[$i]['prenom']) and isset($tab[$i]['prenom'])) {
 
    echo '<tr>';
            
-              echo '<td style="font-size:18px;">';
+              echo '<td style="font-size:16px;font-weight:bold;">';
 
                 echo $tab[$i]['prenom'];                  
                 echo '</td>';
-                echo '<td style="font-size:18px;">';
+                echo '<td style="font-size:16px;font-weight:bold;">';
                 echo $tab[$i]['nom'];
                 echo "</td>";
-                echo '<td style="font-size:15px;">';
-                echo $tab[$i]['score'].' pts';
+                echo '<td style="font-size:16px;font-weight:bold;">';
+                echo $tab[$i]['score'];
+                echo " pts";
+                echo '<hr style="background-color:'.$couleur[$i].';height:4px;border-radius:25%;">';
                 echo "</td>";
  
             
@@ -114,7 +143,7 @@ echo '</table>';
 
                 </div>
                 <div id = "content2">
-                  <p>Sakhir Fall 3000 pts
+                  <p>Joueur joueur 3000 pts
                   </p>
                 </div>
   
