@@ -86,14 +86,7 @@ session_start();
   $login=htmlspecialchars($_POST['login']);
   $mdp=$_POST['mdp'];
 
- /* $json = file_get_contents("json/admin.json");
-  var_dump(json_decode($json));
-  $obj = json_decode($json);
-  $log=$obj->login;
-  $pwd=$obj->mdp;
-  echo $log;
-  echo "<br>";
-  echo $pwd;*/
+ 
  $trouveloginadmin=ChercheLogin($login,'json/admin.json');
  $trouveloginjoueur=ChercheLogin($login,'json/joueurs.json');
 
@@ -119,7 +112,7 @@ session_start();
                        $_SESSION['avatar']=$tab[$pos]['avatar'];
                        $_SESSION['user']=true;
                        $_SESSION['profil']="admin";
-                       header('location:src/creationcompte.php');
+                       header('location:src/listequestions.php');
               
                      }
                 else { 

@@ -120,17 +120,17 @@ for ($i=0; $i< $NbrLigne; $i++) {
 
    echo '<tr>';
            
-              echo '<td style="font-size:16px;font-weight:bold;">';
+              echo '<td style="font-size:18px;font-weight:bold;">';
 
                 echo $tab[$i]['prenom'];                  
                 echo '</td>';
-                echo '<td style="font-size:16px;font-weight:bold;">';
+                echo '<td style="font-size:18px;font-weight:bold;">';
                 echo $tab[$i]['nom'];
                 echo "</td>";
-                echo '<td style="font-size:16px;font-weight:bold;">';
+                echo '<td style="font-size:18px;font-weight:bold;">';
                 echo $tab[$i]['score'];
                 echo " pts";
-                echo '<hr style="background-color:'.$couleur[$i].';height:4px;border-radius:25%;">';
+                echo '<hr style="background-color:'.$couleur[$i].';height:4px;border-radius:25%;width:90%;">';
                 echo "</td>";
  
             

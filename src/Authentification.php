@@ -111,7 +111,7 @@ session_start();
                        $_SESSION['avatar']=$tab[$pos]['avatar'];
                        $_SESSION['user']=true;
                        $_SESSION['profil']='admin';
-                       header('location:creationcompte.php');
+                       header('location:listequestions.php');
               
                      }
                 else { 
