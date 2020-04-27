@@ -128,7 +128,7 @@ $tab= array_slice($tab, $offset, $limit );
 
 $NbrCol = 3;
 $NbrLigne=3;
-echo '<table border="0" width="430">';
+echo '<table border="0" width="450">';
 echo '<h2>';
 echo "<tr>";
 echo "<td>";
@@ -139,6 +139,9 @@ echo "<h2>Nom</h2>";
 echo "</td>";
 echo "<td>";
 echo "<h2>Score</h2>";
+echo "</td>";
+echo "<td>";
+echo "<h2>Action</h2>";
 echo "</td>";
 echo "</tr>";
 echo '</h2>';
@@ -154,9 +157,14 @@ for ($i=0; $i< $NbrLigne; $i++) {
                 echo "<td>";
                 echo $tab[$i]['nom'];
                 echo "</td>";
-                echo "<td>";
+                echo '<td style="">';
                 echo $tab[$i]['score'];
                 echo "</td>";
+                echo "<td>";
+                echo '<a href="supprimer.php?id='.$tab[$i]['prenom'].'" style="text-decoration:none;"><img style="width:20%;margin-left:10%;position:relative;" src="../images/Icônes/supp1.png" alt="Supprimer" /></a>';
+                echo '<a href="modifier.php?id='.$tab[$i]['prenom'].'" style="text-decoration:none;"><img style="width:20%;margin-left:15%;position:relative;" src="../images/Icônes/mod.png" /></a>';
+                echo "</td>";
+                    
  
             
    echo '</tr>';
@@ -165,9 +173,10 @@ for ($i=0; $i< $NbrLigne; $i++) {
 }
 
 echo '</table>';
+echo "<br>"; 
 echo "<br>";              
   $link = 'listejoueurs.php?page=%d';
-$pagerContainer = '<div style="width:300px;">';   
+$pagerContainer = '<div style="width:100%;margin-left:15%">';   
 if( $totalPages != 0 ) 
 {
   if( $page == 1 ) 
@@ -178,7 +187,7 @@ if( $totalPages != 0 )
   { 
     $pagerContainer .= sprintf( '<button style="background-color:#828180;"><a style="font-size :25px;color:white;text-decoration:none;" href="' . $link . '" style="color:#828180;"> &#171; Precedent</a></button>', $page - 1 ); 
   }
-  $pagerContainer .= ' <span> <strong> page' . $page . '</strong> sur  ' . $totalPages . '</span>'; 
+  $pagerContainer .= ' <span style="margin-left:20%;"> </span>'; 
   if( $page == $totalPages ) 
   { 
     $pagerContainer .= ''; 
@@ -194,7 +203,10 @@ if( $totalPages != 0 )
 }                   
 $pagerContainer .= '</div>';
 
-echo $pagerContainer; 
+echo $pagerContainer;
+
+
+
        ?>    
 
         <!--  fin des questions  -->
