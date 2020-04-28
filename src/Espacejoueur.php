@@ -22,13 +22,7 @@ if (!isset($_SESSION['user']) || $_SESSION['profil']==='admin' ) {
 <body>
 <div id="container">
 
-  <header>
-           <nav>  
-             <img id="logosa" src="../Images/logo-QuizzSA.png">
-             <span> Le Plaisir de jouer </span> 
-          </nav>
-           
-  </header>  
+  <?php include("header1.php"); ?>  
 
 <div class="inset">
   <div class="login-head">
@@ -38,7 +32,7 @@ if (!isset($_SESSION['user']) || $_SESSION['profil']==='admin' ) {
     echo $_SESSION['prenom'].' '.$_SESSION['nom'] ; }?></span> </div>
     <h1> BIENVENUE SUR LA PLATEFORME DE JEU DE QUIZZ <br>JOUER ET TESTER VOTRE NIVEAU DE CULTURE GENERALE </h1>
     
-     <a  href="deconnect.php"> <input  class="deconnect" type="button" name="deconnect" value="Deconnexion"> </a>
+     <button class="deconnect" type="button" name="deconnect" value="Deconnexion"><a style="text-decoration: none;color:white;" href="deconnect.php"> Deconnexion</a></button>
          
   </div>
   

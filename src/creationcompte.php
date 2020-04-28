@@ -1,147 +1,36 @@
-<?php
- session_start();
-// si l'utilisateur n'est pas loggué ou s'il ne dois pas avoir accès à ce script
- 
-if (!isset($_SESSION['user']) || $_SESSION['profil']==='joueur' ) {
-    //header("HTTP/1.1 403 Forbidden");  // header "interdit" 
-    include 'errorpage.html';
-    header("Refresh:7;url=Authentification.php");// redirection vers "login.php" dans 5 
-    die();
- 
-}
-?>
+<?php include("islogged.php"); ?>  
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Creation de compte</title>
-	<link rel="stylesheet" type="text/css" href="../css/creationcompte.css?v=1">
+  <title> Creation Compte</title>
+  <link rel="stylesheet" type="text/css" href="../css/creationcompte.css?v=1">
 </head>
 <body>
-<div id="container">
 
-  <header>
-           <nav>  
-             <img id="logosa" src="../Images/logo-QuizzSA.png">
-             <span> Le Plaisir de jouer </span> 
-          </nav>
-           
-  </header>  
+<div id="container">
+ <?php include("header1.php"); ?>  
+   
 
  <div class="inset">
-  <div class="login-head">
-    <h1>CREER ET PARAMETRER VOS QUIZZ </h1>
-    
-       <a href="deconnect.php"><input  class="deconnect" type="button" name="deconnect" value="Deconnexion"></a>
-         
-  </div>
-
+<?php include("header2.php"); ?>   
+  
 <div id="milieu">
-     <div class="gauche">
-      <div class="degrade"> <img class="profiler" style=" height: 15%;" src="../images/avatar/<?php if (isset($_SESSION['avatar'])) {echo $_SESSION['avatar'];} ?>">
-    <span id="pnom"><?php if (isset($_SESSION['nom']) and isset($_SESSION['prenom']) )
-    {
-    echo $_SESSION['prenom'].' '.$_SESSION['nom'] ; }?></span> </div>
-      <div class="menu">
-         <div id="sidebar">
-
-                <ul>
-                  
-                    <li>
-                        <a href="listequestions.php">Liste Questions<img src="../Images/Icônes/ic-liste.png"> </a>
-                     </li>
-                     <li class="active">   
-                        <a href="creationcompte.php">Creer Admin<img src="../Images/Icônes/ic-ajout-active.png"> </a>
-                        
-                    </li>
-                    <li>
-                        <a href="listejoueurs.php">Liste Joueurs <img src="../Images/Icônes/ic-liste.png"> </a>
-                    </li>
-                    <li>
-                        <a href="creerquestion.php">Creer Questions<img src="../Images/Icônes/ic-ajout.png"> </a>
-                    </li>
-                </ul>
-
-                
-            </div>
-      </div>
-  </div>
-  <div class="droite">
-     <div class="form-v2-content">
-      <form class="form-detail" action="#" method="post" id="myform"  enctype="multipart/form-data">
-        <h2>S'inscrire</h2>
-        <label>Pour tester votre niveau de culture generale</label>
-        <div class="form-row">
-          <label for="full-name">Prenom</label>
-          <input type="text" name="prenom" id="" required="" aria-required="true" class="input-text" placeholder="Prenom" value="<?php if (isset($_POST['prenom']) ) echo htmlentities($_POST['prenom']) ?>">
-        </div>
-        <div class="form-row">
-          <label for="full-name">Nom</label>
-          <input type="text" name="nom" id="" required="" aria-required="true" class="input-text" placeholder="Nom" value="<?php if (isset($_POST['nom']) ) echo htmlentities($_POST['nom']) ?>">
-        </div>
-         <div class="form-row">
-          <label for="full-login">Login</label>
-          <input type="text" name="login" id="" required="" aria-required="true" class="input-text" placeholder="Login" value="<?php if (isset($_POST['login']) ) echo htmlentities($_POST['login']) ?>">
-        </div>
-        <div class="form-row">
-          <label for="password">Password:</label>
-          <input type="password" name="password" id="password" class="input-text" required="" aria-required="true">
-        </div>
-        <div class="form-row">
-          <label for="comfirm-password">Confirmer Password</label>
-          <input type="password" name="confirm_password" id="confirm_password" class="input-text" required="" aria-required="true">
-        </div>
-        <div class="form-row">
-         <label for="avatar">Avatar </label>
-         <input type="file"  name="avatarfile" value="Choisir un fichier" id="avatar"  onchange="handleFiles(files)" > 
-           <div><label for="upload"><span id="preview"></span></label></div>  
-        </div>
-        
-        <div class="form-row-last">
-          <input type="submit" name="register" class="register" value="Creer compte">
-        </div>
-      </form>
-
-    <span>Avatar du joueur</span>
- <script>
- function handleFiles(files) {
-   var imageType = /^image\//;
-   for (var i = 0; i < files.length; i++) {
-   var file = files[i];
-   if (!imageType.test(file.type)) {
-     alert("veuillez sélectionner une image");
-   }else{
-     if(i == 0){
-       preview.innerHTML = '';
-     }
-     var img = document.createElement("img");
-     img.classList.add("obj");
-     img.file = file;
-     img.style="width:80%;margin-top:-20%;margin-left:15%;height: 120%;border-radius: 50% ;border: 4px solid #51BFD0;position: absolute;";
-     preview.appendChild(img); 
-     var reader = new FileReader();
-     reader.onload = ( function(aImg) { 
-     return function(e) { 
-     aImg.src = e.target.result; 
-   }; 
-  })(img);
-
- reader.readAsDataURL(file);
- }
- 
- }
-}
- </script>
-     </div>
-  </div>
+<?php $nav_en_cours = "creercompte"; ?>    
+<?php include("menu.php"); ?>    
          
-
+<?php include("pagecompte.php"); ?>  
         
-  </div>
+</div>
 
   </div>
 
 </div>
+
+
+</body>
+</html>
+
 
 
 
@@ -268,20 +157,5 @@ return  false;
 }
 
 ?>
-</body>
-</html>
 
-
-
-
-<!--menu side bar-->
-
-
-    
-
-
-
-<?php 
-
-?>
 

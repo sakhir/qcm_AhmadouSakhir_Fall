@@ -1,71 +1,24 @@
-<?php
- session_start();
-// si l'utilisateur n'est pas loggué ou s'il ne dois pas avoir accès à ce script
- 
-if (!isset($_SESSION['user']) || $_SESSION['profil']==='joueur' ) {
-    //header("HTTP/1.1 403 Forbidden");  // header "interdit" 
-    include 'errorpage.html';
-    header("Refresh:7;url=Authentification.php");// redirection vers "login.php" dans 5 
-    die();
- 
-}
-?>
+<?php include("islogged.php"); ?>  
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Liste question</title>
-	<link rel="stylesheet" type="text/css" href="../css/listequestion.css?v=1">
+  <title> Liste Questions</title>
+  <link rel="stylesheet" type="text/css" href="../css/listequestion.css?v=1">
 </head>
 <body>
 <div id="container">
-
-  <header>
-           <nav>  
-             <img id="logosa" src="../Images/logo-QuizzSA.png">
-             <span> Le Plaisir de jouer </span> 
-          </nav>
-           
-  </header>  
+ <?php include("header1.php"); ?>  
+   
 
  <div class="inset">
-  <div class="login-head">
-    <h1>CREER ET PARAMETRER VOS QUIZZ </h1>
-    
-      <a href="deconnect.php"><input  class="deconnect" type="button" name="deconnect" value="Deconnexion"></a>
-         
-  </div>
+<?php include("header2.php"); ?>   
   
 <div id="milieu">
-     <div class="gauche">
-      <div class="degrade"> <img class="profiler" style=" height: 15%;" src="../images/avatar/<?php if (isset($_SESSION['avatar'])) {echo $_SESSION['avatar'];} ?>">
-    <span id="pnom"><?php if (isset($_SESSION['nom']) and isset($_SESSION['prenom']) )
-    {
-    echo $_SESSION['prenom'].' '.$_SESSION['nom'] ; }?></span> </div>
-      <div class="menu">
-         <div id="sidebar">
+ <?php $nav_en_cours = "presentation"; ?>   
+<?php include("menu.php"); ?>    
+         
 
-                <ul>
-                  
-                    <li class="active">
-                        <a href="listequestions.php">Liste Questions<img src="../Images/Icônes/ic-liste.png"> </a>
-                     </li>
-                     <li >   
-                        <a href="creationcompte.php">Creer Admin<img src="../Images/Icônes/ic-ajout-active.png"> </a>
-                        
-                    </li>
-                    <li >
-                        <a href="listejoueurs.php">Liste Joueurs <img src="../Images/Icônes/ic-liste.png"> </a>
-                    </li>
-                    <li>
-                        <a href="creerquestion.php">Creer Questions<img src="../Images/Icônes/ic-ajout.png"> </a>
-                    </li>
-                </ul>
-
-                
-            </div>
-      </div>
-  </div> 
   <?php 
       $selected='selected="selected"';
       (isset($_POST['liste'])) ? $liste=$_POST['liste'] : $liste="";
@@ -80,10 +33,10 @@ if (!isset($_SESSION['user']) || $_SESSION['profil']==='joueur' ) {
        <div id="bleu">
  
  <?php 
-$json_data = file_get_contents('../json/question.json');
+$json_data = file_get_contents('../json/quest.json');
 $data = json_decode($json_data, true);
 $id=$_GET['id'];
-$pos=TrouvePositionquestion($id,'../json/question.json');
+$pos=TrouvePositionquestion($id,'../json/quest.json');
 
  ?>
  <form method="post" name="formulaireDynamique">
@@ -148,11 +101,20 @@ if ($liste=="Choix Multiple")
          
 
         
-  </div>
+</div>
 
   </div>
 
 </div>
+
+</body>
+</html>
+
+
+
+
+
+
 
 
 <?php
@@ -170,7 +132,7 @@ if (isset($_POST['valider']))
         // debut d enregistrement 
             $contenu_json = json_encode(array_values($data));
                              
-file_put_contents('../json/question.json', $contenu_json);
+file_put_contents('../json/quest.json', $contenu_json);
 echo '<script type="text/javascript">alert("Modifiation reuissie");</script>';
 
 //  recharger la page : 
@@ -178,7 +140,7 @@ echo '<script type="text/javascript">alert("Modifiation reuissie");</script>';
                       // fin d'enregistrement 
         echo '<script type="text/javascript" >alert("Ajout de question reuissi :)  ")</script>';
             $tempArray=array();
-            $inp = file_get_contents('../json/question.json');
+            $inp = file_get_contents('../json/quest.json');
             $tempArray = json_decode($inp,true);
             //var_dump($tempArray);
         }
