@@ -73,8 +73,19 @@ if (isset($_POST['valider']))
                             echo "Erreur : ".$e->getMessage();
                         }
                       // fin d'enregistrement 
-        echo '<script type="text/javascript" >alert("Ajout de question reuissi :)   ")</script>';
-
+              ?>
+              
+       <script type="text/javascript" >
+            let q=document.getElementById("qu");
+            let s=document.getElementById("sc");
+           
+        alert(" Ajout de question reuissi :)  ");
+         q.value="";
+         s.value="";
+           
+           
+          </script>';
+      <?php 
 
             $tempArray=array();
             $inp = file_get_contents('../json/quest.json');
@@ -83,14 +94,11 @@ if (isset($_POST['valider']))
         }
         else
         { 
-          ?>
-          <script type="text/javascript" >
-        alert(" Question non ajoutee ,Veuillez revoir vos donnees  :(   ");
-        
-           document.forms['formulaireDynamique'].reset(); 
+
+          echo '<script type="text/javascript" >alert(" Question non ajoutee ,Veuillez revoir vos donnees  :(   ");
            
           </script>';
-       <?php
+
         }
       
   
