@@ -125,7 +125,8 @@ if (isset($_POST['valider']))
     if (!empty($_POST['question']) and !empty($_POST['score']) ) 
 
      {
-        if (($liste=="Choix texte" and !empty($_POST['texte'])) or ($liste=="Choix simple" and !empty($_POST['champs'])) or ($liste=="Choix Multiple" and !empty($_POST['champs'])) ) 
+        if (($liste=="Choix texte" and !empty($_POST['texte'])) or 
+          ($liste=="Choix simple" and !empty($_POST['champs']) and Validerreponse($_POST['champs'])!=false and !empty($_POST['sels']) ) or ($liste=="Choix Multiple" and !empty($_POST['champs'])and Validerreponse($_POST['champs'])!=false and !empty($_POST['sels']) ) )
 
         {
            $data[$pos][0]=$_POST;

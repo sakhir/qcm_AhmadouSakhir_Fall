@@ -41,7 +41,8 @@ if (isset($_POST['valider']))
     if (!empty($_POST['question']) and !empty($_POST['score']) ) 
 
      {
-        if (($liste=="Choix texte" and !empty($_POST['texte'])) or ($liste=="Choix simple" and !empty($_POST['champs'])) or ($liste=="Choix Multiple" and !empty($_POST['champs'])) ) 
+        if (($liste=="Choix texte" and !empty($_POST['texte'])) or 
+          ($liste=="Choix simple" and !empty($_POST['champs']) and Validerreponse($_POST['champs'])!=false and !empty($_POST['sels']) ) or ($liste=="Choix Multiple" and !empty($_POST['champs'])and Validerreponse($_POST['champs'])!=false and !empty($_POST['sels']) ) ) 
 
         {
            $_SESSION['question'][]=$_POST;
@@ -114,7 +115,16 @@ else
 
 } // fin du isset 
 
-
+function Validerreponse($tab) {
+  $nb=count($tab);
+  if ($nb>=2) {
+   return true ;
+  } else {
+    return false ;
+  }
+  
+}
+ 
 ?>
 <script type="text/Javascript" >
     var j=-1;
