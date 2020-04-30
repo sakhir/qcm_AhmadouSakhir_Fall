@@ -8,19 +8,15 @@
 <body>
 <div id="container">
 
-  <header>
-           <nav>  
-             <img id="logosa" src="../Images/logo-QuizzSA.png">
-             <span> Le Plaisir de jouer </span> 
-          </nav>
-           
-  </header>  
+  <?php include("header1.php"); ?>  
 
    <div class="form-v2-content">
+     
       <form class="form-detail" method="post" id="myform" enctype="multipart/form-data" >
         <h2>S'inscrire</h2>
         <label>Pour tester votre niveau de culture generale</label>
         <div class="form-row">
+          
           <label for="full-name">Prenom</label>
           <input type="text" name="prenom" id="full_name" required="" aria-required="true" class="input-text" placeholder="Prenom" value="<?php if (isset($_POST['prenom']) ) echo htmlentities($_POST['prenom']) ?>">
         </div>

@@ -250,49 +250,40 @@ margin-top: 3%;
 
 /* fin style aside */ 
 
+@media(max-width:320px)
+{
 
+  nav span 
+  {
+    color: red;
+    font-size: 1.15em;
+    float: left; 
+    margin-left: 1%;
+  }
 
-@media (max-width:320px){
-  
-  .login-head {
-  padding: 1.45em 0;
+    
+  .deconnect 
+  {
+    color: red;
+    background-color: #3addd6;
+    border-radius: 6px;
+    width: 70%;
+    height: 40px;
+    margin-top: -6%;
+    margin-left: 10%;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight:bold;
+    font-size: 5px;
+  }  
+  .login-head 
+  {
+    padding: 1.45em 0;
   }
-  .login-head h1 {
-  font-size: 1.15em;
+  .login-head h1 
+  {
+    font-size: 1.15em;
+    color: red;
   }
-  .icon {
-    margin: -33px 9px 9px 0px;
-  }
-  input[type="text"], input[type="password"] {
-    font-size: 16px;
-  }
-  .alert-close {
-  right: 12px;
-  top: 22px;
-  }
-  form {
-  padding: 1.5em 1.5em;
-  }
-  .submit {
-  padding-top: 0.4em;
-  }
-  input[type="submit"] {
-    float:none;
-  padding: 11px 0px;
-  width: 52%;
-  font-size: 15px;
-  }
-  .submit h4 {
-    margin-top: 15px;
-    margin-bottom: 20px;
-  }
-  .submit h4 a {
-  float: none;
-  font-size: 15px;
-  }
-  .footer {
-  left: 22%;
-  bottom: 59px;
-  }
-  
+    
 }

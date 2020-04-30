@@ -1,6 +1,6 @@
 <div class="droite">
      <div class="droite-content">
-       <strong style="top:5%;margin-left: 12%;font-size: 25px;"> LISTE DES JOUEURS PAR SCORE  </strong> 
+       <strong style="" class="titr"> LISTE DES JOUEURS PAR SCORE  </strong> 
        <div id="bleu">
            <!-- debut liste des joueurs  -->
 <?php 
@@ -59,7 +59,7 @@ $tab= array_slice($tab, $offset, $limit );
 
 $NbrCol = 3;
 $NbrLigne=3;
-echo '<table border="0" width="450">';
+echo '<table border="0" width="100%">';
 echo '<h2>';
 echo "<tr>";
 echo "<td>";

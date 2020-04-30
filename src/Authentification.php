@@ -7,13 +7,7 @@
 <body>
 <div id="container">
 
-  <header>
-           <nav>  
-             <img id="logosa" src="../Images/logo-QuizzSA.png">
-             <span> Le Plaisir de jouer </span> 
-          </nav>
-           
-  </header>  
+ <?php include("header1.php"); ?>  
 
  <div class="inset">
   <div class="login-head">

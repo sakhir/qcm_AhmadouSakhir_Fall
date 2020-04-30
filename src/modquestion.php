@@ -261,7 +261,7 @@ $tempArray = json_decode($inp,true);
    function suppression(element){
    var formulaire = window.document.formulaireDynamique;
         j--; 
-   // Supprime le bouton d'ajout
+   // Supprime le bouton d' 
   // formulaire.removeChild(element.previousSibling);
    // Supprime le champ
    formulaire.removeChild(element.nextSibling);

@@ -160,28 +160,31 @@ input[type="submit"]:hover {
   transition: color 0.2s ease-in-out;
   width: 30px;
 }
+@media  (max-width:1300px){  
 
-
-@media (max-width:320px){
   
+  .inset {
+    width: 60%;
+    margin-left: 12%;
+  }
   .login-head {
   padding: 1.45em 0;
+  width: 99%;
+
   }
   .login-head h1 {
   font-size: 1.15em;
   }
   .icon {
-    margin: -33px 9px 9px 0px;
+    margin-left: 20%;
+    margin-top: -5%;
   }
   input[type="text"], input[type="password"] {
     font-size: 16px;
   }
-  .alert-close {
-  right: 12px;
-  top: 22px;
-  }
-  form {
-  padding: 1.5em 1.5em;
+  
+  form  {
+    width: 87.5%;
   }
   .submit {
   padding-top: 0.4em;
@@ -201,5 +204,337 @@ input[type="submit"]:hover {
   font-size: 15px;
   }
   
+  
+}
+
+@media  (max-width:1250px)  {  
+
+  
+  .inset {
+    width: 60%;
+    margin-left: 12%;
+  }
+  .login-head {
+  padding: 1.45em 0;
+  width: 99%;
+
+  }
+  .login-head h1 {
+  font-size: 1.15em;
+  }
+  .icon {
+    margin-left: 20%;
+    margin-top: -5%;
+  }
+  input[type="text"], input[type="password"] {
+    font-size: 16px;
+  }
+  
+  form  {
+    width: 87.5%;
+  }
+  .submit {
+  padding-top: 0.4em;
+  }
+  input[type="submit"] {
+    float:none;
+  padding: 11px 0px;
+  width: 52%;
+  font-size: 15px;
+  }
+  .submit h4 {
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+  .submit h4 a {
+  float: none;
+  font-size: 15px;
+  }
+  
+  
+}
+
+
+@media (min-width:1035px) and  (max-width:1200px){  
+
+  
+  .inset {
+    width: 75%;
+    margin-left: 12%;
+  }
+  .login-head {
+  padding: 1.45em 0;
+  width: 97.5%;
+
+  }
+  .login-head h1 {
+  font-size: 1.15em;
+  }
+  .icon {
+    margin-left: 20%;
+    margin-top: -5%;
+  }
+  input[type="text"], input[type="password"] {
+    font-size: 16px;
+  }
+  
+  form  {
+    width: 87.5%;
+  }
+  .submit {
+  padding-top: 0.4em;
+  }
+  input[type="submit"] {
+    float:none;
+  padding: 11px 0px;
+  width: 52%;
+  font-size: 15px;
+  }
+  .submit h4 {
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+  .submit h4 a {
+  float: none;
+  font-size: 15px;
+  }
+  
+  
+}
+
+
+@media (max-width:1024px)
+{
+  
+  .inset {
+    width: 70s%;
+    margin-left: 12%;
+  }
+  .login-head {
+  padding: 1.45em 0;
+  width: 100%;
+
+  }
+  .login-head h1 {
+  font-size: 1.15em;
+  }
+  .icon {
+    margin-left: 20%;
+    margin-top: -5%;
+  }
+  input[type="text"], input[type="password"] {
+    font-size: 16px;
+  }
+  
+  form  {
+    width: 87.5%;
+  }
+  .submit {
+  padding-top: 0.4em;
+  }
+  input[type="submit"] {
+    float:none;
+  padding: 11px 0px;
+  width: 52%;
+  font-size: 15px;
+  }
+  .submit h4 {
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+  .submit h4 a {
+  float: none;
+  font-size: 15px;
+  }
+  
+  
+}
+
+
+@media (min-width: 641px) and (max-width : 768px)
+{
+  
+  .inset {
+    width: 100%;
+    margin-left: 0%;
+  }
+  .login-head {
+  padding: 1.45em 0;
+  width: 100%;
+
+  }
+  .login-head h1 {
+  font-size: 1.15em;
+  }
+  .icon {
+    margin: -33px 32px 20px 25px;
+  }
+  input[type="text"], input[type="password"] {
+    font-size: 16px;
+  }
+  
+  form  {
+    width: 87.5%;
+  }
+  .submit {
+  padding-top: 0.4em;
+  }
+  input[type="submit"] {
+    float:none;
+  padding: 11px 0px;
+  width: 52%;
+  font-size: 15px;
+  }
+  .submit h4 {
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+  .submit h4 a {
+  float: none;
+  font-size: 15px;
+  }
+  
+  
+}
+@media   (max-width : 640px)
+{
+  
+  .inset {
+    width: 98%;
+    margin-left: 0%;
+  }
+  .login-head {
+  padding: 1.45em 0;
+  width: 100%;
+
+  }
+  .login-head h1 {
+  font-size: 1.15em;
+  }
+  .icon {
+    margin: -33px 24px 20px 25px;
+  }
+  input[type="text"], input[type="password"] {
+    font-size: 16px;
+  }
+  
+  form  {
+    width: 82.5%;
+  }
+  .submit {
+  padding-top: 0.4em;
+  }
+  input[type="submit"] {
+    float:none;
+  padding: 11px 0px;
+  width: 52%;
+  font-size: 15px;
+  }
+  .submit h4 {
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+  .submit h4 a {
+  float: none;
+  font-size: 15px;
+  }
+  nav span {
+    font-size: 25px;
+  }
+  
+}
+@media   (min-width: 320px) and (max-width : 480px)
+{
+  
+  .inset {
+    width: 100%;
+    margin-left: 0%;
+  }
+  .login-head {
+  padding: 1.45em 0;
+  width: 100%;
+
+  }
+  .login-head h1 {
+  font-size: 1.15em;
+  }
+  .icon {
+    margin: -33px 24px 20px 25px;
+  }
+  input[type="text"], input[type="password"] {
+    font-size: 16px;
+  }
+  
+  form  {
+    width: 82.5%;
+  }
+  .submit {
+  padding-top: 0.4em;
+  }
+  input[type="submit"] {
+    float:none;
+  padding: 11px 0px;
+  width: 52%;
+  font-size: 15px;
+  }
+  .submit h4 {
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+  .submit h4 a {
+  float: none;
+  font-size: 15px;
+  }
+  nav span {
+    font-size: 25px;
+  }
+  
+}
+
+@media   (min-width: 320px) and (max-width : 640px)
+{
+  
+  .inset {
+    width: 100%;
+    margin-left: 0%;
+  }
+  .login-head {
+  padding: 1.45em 0;
+  width: 100%;
+
+  }
+  .login-head h1 {
+  font-size: 1.15em;
+  }
+  .icon {
+    margin: -33px 24px 20px 25px;
+  }
+  input[type="text"], input[type="password"] {
+    font-size: 16px;
+  }
+  
+  form  {
+    width: 82.5%;
+  }
+  .submit {
+  padding-top: 0.4em;
+  }
+  input[type="submit"] {
+    float:none;
+  padding: 11px 0px;
+  width: 52%;
+  font-size: 15px;
+  }
+  .submit h4 {
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+  .submit h4 a {
+  float: none;
+  font-size: 15px;
+  }
+  nav span {
+    font-size: 25px;
+  }
   
 }

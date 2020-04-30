@@ -6,7 +6,7 @@
   <title> Liste Questions</title>
   <link rel="stylesheet" type="text/css" href="../css/listequestion.css?v=1">
 </head>
-<body>
+<body> 
 <div id="container">
  <?php include("header1.php"); ?>  
    

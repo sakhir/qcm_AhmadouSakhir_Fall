@@ -52,7 +52,7 @@ if ($liste=="Choix Multiple")
 
   ?>
 
-                      <input type="submit" name="valider" value="Enregistrer" style="color: white; background-color: #51BFD0;width: 20%; height: 40px; border-radius: 5px;font-size: 15px;margin-top:10%;margin-left:75%;position: relative;">
+                      <input type="submit" name="valider" value="Enregistrer" style="" class="enr">
 
           </form>
        </div>

@@ -200,91 +200,248 @@ margin-top: 3%;
   margin-top: 2%;
 
 }
-
+.titr {
+  top:5%;margin-left: 12%;font-size: 25px;
+}
 
 /* fin style inscription */
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
-@media ( max-width : 768px) {
-  #sidebar a {
-    color: #fff;
+
+@media  (max-width:1366px){ 
+ .gauche 
+  {
+   width:35%;
+   box-shadow: 1px 1px 12px #555;
+   border-top-left-radius: 8%;
+   border-top-right-radius:8%;
+   margin-left: -2%;
   }
-  #sidebar ul li.active>a, a[aria-expanded="true"] {
-  color: #1d2129 !important;
-  background-color: #fff;
+  .droite-content  {
+  box-shadow: 1px 1px 12px #555;
+  background: #fff;
+  border-radius: 15px;
+  -o-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  margin-left: 18%;
+  margin-top: 10%;
+  position: relative;
+  width: 92%;
+  height: auto;
+
+
 }
-  #sidebar {
-    margin-left: -250px;
-    width: 250px;
-    color: #fff;
-    background: #009688;
-    overflow-y: scroll;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
-    position: fixed;
-    top: 0;
-    left: -250px;
-    height: 100vh;
-    z-index: 999;
+#sidebar ul li a {
+  padding: 5px;
+  font-size: 1.5em;
+  display: block;
+ /* border-left: 3px solid #e9ebee;*/
+}
+}
+
+@media (min-width:1035px) and  (max-width:1200px){  
+
+.gauche 
+  {
+   width:38%;
+   box-shadow: 1px 1px 12px #555;
+   border-top-left-radius: 8%;
+   border-top-right-radius:8%;
+   margin-left: -2%;
   }
-  #sidebar.active {
-    margin-left: 0;
-    left: 0;
-  }
-  #sidebar .sidebar-header {
-    display: block;
-    padding: 20px;
-  }
-  #sidebar ul li a, #sidebar ul li a:hover, #sidebar ul li.active>a, a[aria-expanded="true"]
-    {
-    border-left: none;
-  }
+   .droite-content  {
+  box-shadow: 1px 1px 12px #555;
+  background: #fff;
+  border-radius: 15px;
+  -o-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  margin-left: 18%;
+  margin-top: 3%;
+  position: relative;
+  width: 92%;
+  height: auto;
 
 
-/* fin style aside */ 
+}
+#sidebar ul li a {
+  padding: 5px;
+  font-size: 1.2em;
+  display: block;
+ /* border-left: 3px solid #e9ebee;*/
+}
+}
+
+/* fin 320px */
+
+@media (max-width:1024px)
+{ 
+.gauche 
+  {
+   width:58%;
+   box-shadow: 1px 1px 12px #555;
+   border-top-left-radius: 8%;
+   border-top-right-radius:8%;
+  }
+.deconnect 
+  {
+    color:white;
+    background-color: #3addd6;
+    border-radius: 6px;
+    width: 30%;
+    height: 40px;
+    margin-top: 3%;
+    margin-left: 65%;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight:bold;
+    font-size: 20px;
+  }
+ .droite-content  {
+  box-shadow: 1px 1px 12px #555;
+  background: #fff;
+  border-radius: 15px;
+  -o-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  margin-left: -35%;
+  margin-top: 60%;
+  position: relative;
+  width: 140%;
+  height: auto;
 
 
-@media (max-width:320px){
-  
-  .login-head {
-  padding: 1.45em 0;
+} 
+}
+
+
+
+
+/* fin 320px */
+
+@media (min-width: 641px) and (max-width : 768px)
+{ 
+.gauche 
+  {
+   width:30%;
+   box-shadow: 1px 1px 12px #555;
+   border-top-left-radius: 8%;
+   border-top-right-radius:8%;
   }
-  .login-head h1 {
-  font-size: 1.15em;
+.deconnect 
+  {
+    color:white;
+    background-color: #3addd6;
+    border-radius: 6px;
+    width: 30%;
+    height: 40px;
+    margin-top: 3%;
+    margin-left: 65%;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight:bold;
+    font-size: 20px;
   }
-  .icon {
-    margin: -33px 9px 9px 0px;
+ .droite-content  {
+  box-shadow: 1px 1px 12px #555;
+  background: #fff;
+  border-radius: 15px;
+  -o-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  margin-left: -35%;
+  margin-top: 60%;
+  position: relative;
+  width: 140%;
+  height: auto;
+
+
+} 
+}
+
+
+
+
+/* debut 320px */
+
+@media   (min-width: 320px) and (max-width : 640px)
+{
+  .gauche 
+  {
+   width:98%;
+   box-shadow: 1px 1px 12px #555;
+   border-top-left-radius: 8%;
+   border-top-right-radius:8%;
+   margin-left: 2%;
   }
-  input[type="text"], input[type="password"] {
-    font-size: 16px;
+  nav span 
+  {
+    color: white;
+    font-size: 2em;
+    float: left;  
+    margin-left: 20%;
   }
-  .alert-close {
-  right: 12px;
-  top: 22px;
+
+    
+  .deconnect 
+  {
+    color:white;
+    background-color: #3addd6;
+    border-radius: 6px;
+    width: 40%;
+    height: 40px;
+    margin-top: 5%;
+    margin-left: 60%;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight:bold;
+    font-size: 20px;
+  }  
+  .login-head 
+  {
+    padding: 1.45em 0;
   }
-  form {
-  padding: 1.5em 1.5em;
+  .login-head h1 
+  {
+    font-size: 1.15em;
   }
-  .submit {
-  padding-top: 0.4em;
-  }
-  input[type="submit"] {
-    float:none;
-  padding: 11px 0px;
-  width: 52%;
-  font-size: 15px;
-  }
-  .submit h4 {
-    margin-top: 15px;
-    margin-bottom: 20px;
-  }
-  .submit h4 a {
-  float: none;
-  font-size: 15px;
-  }
-  .footer {
-  left: 22%;
-  bottom: 59px;
-  }
-  
+  .droite-content  {
+  box-shadow: 1px 1px 12px #555;
+  background: #fff;
+  border-radius: 15px;
+  -o-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  margin-left: -35%;
+  margin-top: 65%;
+  position: relative;
+  width: 140%;
+  height: auto;
+
+
+}
+
+#milieu {
+  padding:0;
+}    
+#bleu { 
+  border:2px solid  #51BFD0;
+  height:auto;
+  width: 100%;
+  padding-bottom: 20%;
+  border-radius: 8%;
+ margin-left: -2%;
+  margin-top: 2%;
+
+}
+.titr {
+  top:5%;margin-left: 12%;font-size: 15px;
+}
 }

@@ -14,7 +14,7 @@
          <!-- debut des questions -->
          <?php 
  // partie liste questions:
-  $inp = file_get_contents('../json/question.json');
+  $inp = file_get_contents('../json/quest.json');
   $Questions= json_decode($inp,true);
   $page = ! empty( $_GET['page'] ) ? (int) $_GET['page'] : 1;
 $total = count($Questions);  
@@ -33,7 +33,7 @@ $Questions= array_slice($Questions, $offset, $limit );
 
 
 $NbrLigne=3;
-echo '<table border="0" width="430">';
+echo '<table border="0" width="auto">';
 
 for ($i=0; $i< $NbrLigne; $i++) {
   if (isset($Questions[$i][0]['question']) and !empty($Questions[$i][0]['question'])  ) {

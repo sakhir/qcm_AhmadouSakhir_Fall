@@ -106,7 +106,7 @@ function triBulleDecroissant($tab) {
                 $tab=triBulleDecroissant($tab);
                 $NbrCol = 3;
 $NbrLigne=5;
-echo '<table border="0" width="285">';
+echo '<table border="0" width="auto">';
 $couleur = array('#50DAC2','#6AD7D1','#F8B106','#EF7E05','#EEEEEE');
 
 for ($i=0; $i< $NbrLigne; $i++) {
@@ -114,14 +114,14 @@ for ($i=0; $i< $NbrLigne; $i++) {
 
    echo '<tr>';
            
-              echo '<td style="font-size:18px;font-weight:bold;">';
+              echo '<td style="font-size:15px;font-weight:bold;">';
 
                 echo $tab[$i]['prenom'];                  
                 echo '</td>';
-                echo '<td style="font-size:18px;font-weight:bold;">';
+                echo '<td style="font-size:15px;font-weight:bold;">';
                 echo $tab[$i]['nom'];
                 echo "</td>";
-                echo '<td style="font-size:18px;font-weight:bold;">';
+                echo '<td style="font-size:15px;font-weight:bold;">';
                 echo $tab[$i]['score'];
                 echo " pts";
                 echo '<hr style="background-color:'.$couleur[$i].';height:4px;border-radius:25%;width:90%;">';

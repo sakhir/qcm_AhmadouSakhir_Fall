@@ -374,88 +374,250 @@ position: absolute;
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
-@media ( max-width : 768px) {
-  #sidebar a {
-    color: #fff;
+@media  (max-width:1366px){ 
+ .gauche 
+  {
+   width:35%;
+   box-shadow: 1px 1px 12px #555;
+   border-top-left-radius: 8%;
+   border-top-right-radius:8%;
+   margin-left: -2%;
   }
-  #sidebar ul li.active>a, a[aria-expanded="true"] {
-  color: #1d2129 !important;
-  background-color: #fff;
+ .form-v2-content  {
+  box-shadow: 1px 1px 12px #555;
+  background: #fff;
+  border-radius: 15px;
+  -o-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  margin-left: 15%;
+  position: relative;
+  width: 90%;
+  margin-top: 10%;
+  margin-left: 20%;
+ display: flex;
+display: -webkit-flex;
+
 }
-  #sidebar {
-    margin-left: -250px;
-    width: 250px;
-    color: #fff;
-    background: #009688;
-    overflow-y: scroll;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
-    position: fixed;
-    top: 0;
-    left: -250px;
-    height: 100vh;
-    z-index: 999;
+#sidebar ul li a {
+  padding: 5px;
+  font-size: 1.3em;
+  display: block;
+ /* border-left: 3px solid #e9ebee;*/
+}
+}
+
+@media (min-width:1035px) and  (max-width:1200px){  
+
+.gauche 
+  {
+   width:38%;
+   box-shadow: 1px 1px 12px #555;
+   border-top-left-radius: 8%;
+   border-top-right-radius:8%;
+   margin-left: -2%;
   }
-  #sidebar.active {
-    margin-left: 0;
-    left: 0;
+ .form-v2-content  {
+  box-shadow: 1px 1px 12px #555;
+  background: #fff;
+  border-radius: 15px;
+  -o-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  margin-left: 15%;
+  position: relative;
+  width: 110%;
+  margin-top: 55%;
+  margin-left: -35%;
+ display: flex;
+display: -webkit-flex;
+
+}
+#sidebar ul li a {
+  padding: 5px;
+  font-size: 1.0em;
+  display: block;
+ /* border-left: 3px solid #e9ebee;*/
+}
+}
+
+/* fin 320px */
+
+@media (max-width:1024px)
+{ 
+.gauche 
+  {
+   width:58%;
+   box-shadow: 1px 1px 12px #555;
+   border-top-left-radius: 8%;
+   border-top-right-radius:8%;
   }
-  #sidebar .sidebar-header {
-    display: block;
-    padding: 20px;
+.deconnect 
+  {
+    color:white;
+    background-color: #3addd6;
+    border-radius: 6px;
+    width: 30%;
+    height: 40px;
+    margin-top: 3%;
+    margin-left: 65%;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight:bold;
+    font-size: 20px;
   }
-  #sidebar ul li a, #sidebar ul li a:hover, #sidebar ul li.active>a, a[aria-expanded="true"]
-    {
-    border-left: none;
-  }
+ .form-v2-content  {
+  box-shadow: 1px 1px 12px #555;
+  background: #fff;
+  border-radius: 15px;
+  -o-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  margin-left: 15%;
+  position: relative;
+  width: 150%;
+  margin-top: 55%;
+  margin-left: -35%;
+ display: flex;
+display: -webkit-flex;
+
+} 
+}
 
 
-/* fin style aside */ 
 
 
-/*-----start-responsive-design------*/
+/* fin 320px */
+
+@media (min-width: 641px) and (max-width : 768px)
+{ 
+.gauche 
+  {
+   width:70%;
+   box-shadow: 1px 1px 12px #555;
+   border-top-left-radius: 8%;
+   border-top-right-radius:8%;
+  }
+.deconnect 
+  {
+    color:white;
+    background-color: #3addd6;
+    border-radius: 6px;
+    width: 30%;
+    height: 40px;
+    margin-top: 3%;
+    margin-left: 65%;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight:bold;
+    font-size: 20px;
+  }
+ .form-v2-content  {
+  box-shadow: 1px 1px 12px #555;
+  background: #fff;
+  border-radius: 15px;
+  -o-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  margin-left: 15%;
+  position: relative;
+  width: 150%;
+  margin-top: 55%;
+  margin-left: -35%;
+ display: flex;
+display: -webkit-flex;
+
+}
+}
 
 
 
 
+/* debut 320px */
 
-@media (max-width:320px){
- 
-  .login-head {
-  padding: 1.45em 0;
+@media   (min-width: 320px) and (max-width : 640px)
+{
+  .gauche 
+  {
+   width:98%;
+   box-shadow: 1px 1px 12px #555;
+   border-top-left-radius: 8%;
+   border-top-right-radius:8%;
+   margin-left: 2%;
   }
-  .login-head h1 {
-  font-size: 1.15em;
-  }
-  .icon {
-    margin: -33px 9px 9px 0px;
-  }
-  input[type="text"], input[type="password"] {
-    font-size: 16px;
-  }
-  .alert-close {
-  right: 12px;
-  top: 22px;
-  }
-  form {
-  padding: 1.5em 1.5em;
-  }
-  .submit {
-  padding-top: 0.4em;
-  }
-  input[type="submit"] {
-    float:none;
-  padding: 11px 0px;
-  width: 52%;
-  font-size: 15px;
-  }
-  .submit h4 {
-    margin-top: 15px;
-    margin-bottom: 20px;
-  }
-  .submit h4 a {
-  float: none;
-  font-size: 15px;
+  nav span 
+  {
+    color: white;
+    font-size: 2em;
+    float: left;  
+    margin-left: 20%;
   }
 
-  
+    
+  .deconnect 
+  {
+    color:white;
+    background-color: #3addd6;
+    border-radius: 6px;
+    width: 40%;
+    height: 40px;
+    margin-top: 5%;
+    margin-left: 60%;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight:bold;
+    font-size: 20px;
+  }  
+  .login-head 
+  {
+    padding: 1.45em 0;
+  }
+  .login-head h1 
+  {
+    font-size: 1.15em;
+  }
+ .form-v2-content  {
+  box-shadow: 1px 1px 12px #555;
+  background: #fff;
+  border-radius: 15px;
+  -o-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  margin-left: 15%;
+  position: relative;
+  width: 150%;
+  margin-top: 55%;
+  margin-left: -35%;
+ display: flex;
+display: -webkit-flex;
+
+}
+
+#milieu {
+  padding:0;
+}    
+.form-v2-content .form-detail .register {
+  background: #51BFD0;
+  border-radius: 6px;
+  -o-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  width: 50%;
+  height: 40px;
+  border: none;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 15%;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  font-weight:bold;
+  font-size: 16px;
+}
 }
