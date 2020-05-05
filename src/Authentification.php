@@ -128,6 +128,7 @@ session_start();
                         $_SESSION['avatar']=$tab[$pos]['avatar'];
                         $_SESSION['user']  =true;
                         $_SESSION['profil']='joueur';
+                        $_SESSION['login']=$log;
                         header('location:EspaceJoueur.php');
               
                      }

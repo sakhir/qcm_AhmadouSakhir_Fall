@@ -1,6 +1,8 @@
 (function() {
+  var nbq;
+  var questions = [];  
 
-  var questions = [];
+
 $.getJSON('../json/quest.json', function (data) {
 
 for (var prop in data) {
@@ -10,17 +12,15 @@ for (var prop in data) {
     }
     questions.push(arr);
 }   
+ nbq=questions.length;
 
-});
 console.log(questions);
-let nbq=questions.length;
-console.log(questions.length);
 
-
+console.log(nbq);
   var questionCounter = 0; //Tracks question number
   var selections=new Array(); //Array containing user choices
   
-   for (var i = 0; i < 6; i++) {
+   for (var i = 0; i < nbq; i++) {
      selections[i]= new Array();
    }
 
@@ -134,7 +134,7 @@ return true;
     }
     questionCounter = 0;
     selections = new Array();
-     for (var i = 0; i < 5; i++) {
+     for (var i = 0; i < nbq; i++) {
      selections[i]= new Array();
    }
     displayNext();
@@ -297,7 +297,7 @@ function arraysContainSame(a, b) {
   return  a.every(el => b.includes(el));
 }
 
-  // calcule le score et l afffiche a la fin
+  // calcule le score et l afffiche
   function displayScore() {
     var score = $("<p>", { id: "question" });
     console.log(selections);
@@ -349,6 +349,38 @@ function arraysContainSame(a, b) {
         ' et votre score est '+
         sc  
     );
-    return score;
+ // debut ajax 
+
+  var http = new XMLHttpRequest();
+  var url = "../src/Espacejoueur.php";
+  var params = ("score=" +sc);
+  http.open("POST", url, true);
+  http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  http.send(params);
+
+$.ajax({
+  url: '../src/Espacejoueur.php', 
+  type: 'GET',
+  data: {'score':sc},
+ /* dataType: "json",*/
+  success: function(data){
+    // instructions
+    // c'est ici que tu code l'actualisation d'un bout de ta page
+    console.log(sc);
+    alert('Donnees envoyees !');
+
+  },
+  error: function(jqXHR,textStatus){
+    console.log(textStatus,jqXHR);
+    alert('Error AJAX !');
   }
+});
+// fin ajax 
+
+    return score;
+
+  }
+
+  });
+
 })();

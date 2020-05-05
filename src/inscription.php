@@ -97,6 +97,7 @@ if (isset($_POST['register'])) {
    'login' => $_POST['login'],
    'password' => $_POST['password'],
    'confirm_password' => $_POST['confirm_password'],
+   'score' => 0,
    'avatar'  =>$_FILES['avatarfile']['name']
 );
 

@@ -35,7 +35,7 @@ if (!isset($_SESSION['user']) || $_SESSION['profil']==='admin' ) {
      <button class="deconnect" type="button" name="deconnect" value="Deconnexion"><a style="text-decoration: none;color:white;" href="deconnect.php"> Deconnexion</a></button>
          
   </div>
-  
+
   <div id="milieu">
      
     <div class="droite">
@@ -60,7 +60,7 @@ if (!isset($_SESSION['user']) || $_SESSION['profil']==='admin' ) {
                 <div class="button" id='prev'><button style="background-color:#828180; width: 20%;height: 45px;margin-top: 21%;margin-left:2%;position: absolute;"><a href='#' style="font-size :20px;color:white;text-decoration:none;">Precedent</a></button></div>
 
 
-                <div class="button" id='start'><button style="background-color:#042425; width: 17%;height: 45px;margin-top: 25%;margin-left:20%;position: absolute;"> <a href='#' style="font-size :20px;color:white;text-decoration:none;">VALIDER</a></button></div>  
+                <div class="button" id='start'><button style="background-color:#042425; width: 17%;height: 45px;margin-top: 22%;margin-left:20%;position: absolute;"> <a href='#' style="font-size :20px;color:white;text-decoration:none;">VALIDER</a></button></div>  
              
               </form>
 
@@ -106,7 +106,7 @@ function triBulleDecroissant($tab) {
                 $tab=triBulleDecroissant($tab);
                 $NbrCol = 3;
 $NbrLigne=5;
-echo '<table border="0" width="auto">';
+echo '<table border="0"  class="tabl">';
 $couleur = array('#50DAC2','#6AD7D1','#F8B106','#EF7E05','#EEEEEE');
 
 for ($i=0; $i< $NbrLigne; $i++) {
@@ -114,14 +114,14 @@ for ($i=0; $i< $NbrLigne; $i++) {
 
    echo '<tr>';
            
-              echo '<td style="font-size:15px;font-weight:bold;">';
+              echo '<td >';
 
                 echo $tab[$i]['prenom'];                  
                 echo '</td>';
-                echo '<td style="font-size:15px;font-weight:bold;">';
+                echo '<td >';
                 echo $tab[$i]['nom'];
                 echo "</td>";
-                echo '<td style="font-size:15px;font-weight:bold;">';
+                echo '<td >';
                 echo $tab[$i]['score'];
                 echo " pts";
                 echo '<hr style="background-color:'.$couleur[$i].';height:4px;border-radius:25%;width:90%;">';
@@ -138,9 +138,16 @@ echo '</table>';
 
                 </div>
                 <div id = "content2">
-                  <p style="font-size: 18px;font-weight: bold;"><?php if (isset($_SESSION['nom']) and isset($_SESSION['prenom']) )
+                  <p style="font-size: 18px;font-weight: bold;"><?php 
+$json_data = file_get_contents('../json/joueurs.json');
+$data = json_decode($json_data, true);
+$id=$_SESSION['login'];
+$pos=TrouvePositionLogin($id,'../json/joueurs.json');
+$score=$data[$pos]['score'];
+
+                  if (isset($_SESSION['nom']) and isset($_SESSION['prenom']) )
     {
-     echo $_SESSION['prenom'].' '.$_SESSION['nom'].'  3000 pts' ; }?>
+     echo $_SESSION['prenom'].' '.$_SESSION['nom'].'  '.$score.' pts' ; }?>
                   </p>
                 </div>
   
@@ -162,7 +169,6 @@ echo '</table>';
 
 
 
-
 ?>
 
 
@@ -175,8 +181,42 @@ echo '</table>';
 </body>
 </html>
 
+<?php
 
 
+if(isset($_POST['score'])){
+
+$temp = $_POST['score'];
+echo "<h2>$temp</h2>";
+
+
+}
+
+
+
+
+
+function TrouvePositionLogin($element,$file) {
+  $tempArray=array(); $pos=-1;
+ $inp = file_get_contents($file);
+$tempArray = json_decode($inp,true);
+   $nbr=count($tempArray);
+        for ($i=0; $i < $nbr ; $i++) 
+          {
+             if ($tempArray[$i]['login']==$element ) 
+               {
+                  
+                 $pos=$i;
+                  break;
+                }
+             
+           }
+
+       return $pos;          
+}
+
+//http://localhost/sacademy/TP3GIT/Miniprojetqm/src/EspaceJoueur.php
+ ?>
 
 <!--menu side bar-->
 

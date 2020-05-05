@@ -243,6 +243,13 @@ float: left;
     display:none;
     
 }
+.tabl {
+  width: auto;
+}
+.tabl td {
+  font-size: 15px;
+  font-weight: bold;
+}
 
 ul {
     list-style: none;
@@ -473,6 +480,10 @@ margin-top:4%;
   border-radius: 8%;
   margin-left: 2%;
 
+}
+.tabl td {
+  font-size: 12.5px;
+  font-weight: bold;
 }
  
 }
