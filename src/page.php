@@ -4,9 +4,9 @@
   <div class="droite">
      <div class="droite-content">
       <div class="haut">
-        <form method="post"> 
+        <form method="post" action="Espacejoueur.php"> 
        <label style="font-size: 20px;">Nbre de question/jeu </label>
-       <input type="text" name="nbrq" value="2" style="width: 10%;height: 15%;">
+       <input type="text" name="nbrq" value="5" style="width: 10%;height: 15%;">
        <input type="submit" name="ok" value="OK" style="background-color:#5e90af;font-size: 20px;color: white; ">
        </form>
       </div>
@@ -15,14 +15,11 @@
          <?php 
  // partie liste questions:
   $inp = file_get_contents('../json/quest.json');
-  $Questions= json_decode($inp,true);
+  $Questions= json_decode($inp,true); 
   $page = ! empty( $_GET['page'] ) ? (int) $_GET['page'] : 1;
 $total = count($Questions);  
 $limit = 2; //par page
-if (isset($_POST['ok'])) {
-  
-      $limit=intval($_POST['nbrq']);
-    }    
+   
 $totalPages = ceil( $total/ $limit ); 
 $page = max($page, 1); 
 $page = min($page, $totalPages); 

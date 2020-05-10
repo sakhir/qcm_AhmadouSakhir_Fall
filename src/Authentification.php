@@ -105,6 +105,7 @@ session_start();
                        $_SESSION['avatar']=$tab[$pos]['avatar'];
                        $_SESSION['user']=true;
                        $_SESSION['profil']='admin';
+                       $_SESSION['statut']=="oui";
                        header('location:listequestions.php');
               
                      }

@@ -349,8 +349,9 @@ function arraysContainSame(a, b) {
         ' et votre score est '+
         sc  
     );
- // debut ajax 
 
+ // debut ajax 
+/*
   var http = new XMLHttpRequest();
   var url = "../src/Espacejoueur.php";
   var params = ("score=" +sc);
@@ -360,12 +361,11 @@ function arraysContainSame(a, b) {
 
 $.ajax({
   url: '../src/Espacejoueur.php', 
-  type: 'GET',
+  type: 'POST',
   data: {'score':sc},
- /* dataType: "json",*/
+ 
   success: function(data){
-    // instructions
-    // c'est ici que tu code l'actualisation d'un bout de ta page
+    
     console.log(sc);
     alert('Donnees envoyees !');
 
@@ -374,7 +374,39 @@ $.ajax({
     console.log(textStatus,jqXHR);
     alert('Error AJAX !');
   }
-});
+});*/
+
+function getXMLHttpRequest() {
+ var xhr = null;
+ 
+ if (window.XMLHttpRequest || window.ActiveXObject) {
+  if (window.ActiveXObject) {
+   try {
+    xhr = new ActiveXObject("Msxml2.XMLHTTP");
+   } catch(e) {
+    xhr = new ActiveXObject("Microsoft.XMLHTTP");
+   }
+  } else {
+   xhr = new XMLHttpRequest(); 
+  }
+ } else {
+
+  return null;
+ }
+ 
+ return xhr;
+}
+var xhr = getXMLHttpRequest();
+pseudochange();
+function pseudochange()
+{
+
+var Var1 = sc;
+var lien = "../src/Espacejoueur.php?sco="+Var1;
+xhr.open("GET", lien, true);
+xhr.send(null);
+alert("le score est "+Var1);
+}
 // fin ajax 
 
     return score;

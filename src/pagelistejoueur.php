@@ -32,7 +32,7 @@ function triBulleDecroissant($tab) {
 // fin fonction de tri 
 
       
-       $inp = file_get_contents('../json/gamers.json');
+       $inp = file_get_contents('../json/joueurs.json');
                 $tab= json_decode($inp,true);
                 $tab=triBulleDecroissant($tab);
 

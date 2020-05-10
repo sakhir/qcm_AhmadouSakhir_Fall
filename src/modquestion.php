@@ -41,10 +41,10 @@ $pos=TrouvePositionquestion($id,'../json/quest.json');
  ?>
  <form method="post" name="formulaireDynamique">
                   <label for="questions" style="font-size: 21px;font-weight: bold;margin-top: 2%;margin-left: 2%;">Questions  </label>
-                  <input type="textarea" id="qu" name="question" required="" aria-required="true" value="<?php  echo $data[$pos][0]["question"] ?>" style="width: 70%; height: 90px;margin-left: 5%;margin-top: 5%; border-radius: 5px;background-color:#F4F4F4; "> <br><br>
+                  <input type="textarea" id="qu" name="question" required="" aria-required="true" value="<?php if (isset($_POST["question"])) {echo $_POST["question"]; } else {echo $data[$pos][0]["question"];} ?>" style="width: 70%; height: 90px;margin-left: 5%;margin-top: 5%; border-radius: 5px;background-color:#F4F4F4; "> <br><br>
 
                    <label for="score" style="font-size: 21px;font-weight: bold;margin-top: 2%;margin-left: 2%;">Nbre de Points</label>
-                  <input type="number" id="sc" name="score" required="" aria-required="true" value="<?php echo $data[$pos][0]["score"]?>" min="1" style="width: 10%; height:30px;margin-left: 2%;margin-top: 5%;background-color:#F4F4F4;border:1px;border-style:solid;border-color:  #51BFD0 ;" > <br><br>
+                  <input type="number" id="sc" name="score" required="" aria-required="true" value="<?php if (isset($_POST["score"])) {echo $_POST["score"]; } else {echo $data[$pos][0]["score"];} ?>" min="1" style="width: 10%; height:30px;margin-left: 2%;margin-top: 5%;background-color:#F4F4F4;border:1px;border-style:solid;border-color:  #51BFD0 ;" > <br><br>
 
                   <label for="score" style="font-size: 21px;font-weight: bold;margin-top: 2%;margin-left: 2%;">Type de reponse  </label>
                      <select name="liste" value="<?php echo $data[$pos][0]["liste"]?>" onchange="submit();" style="width: 60%; height:35px;margin-left: 2%%;margin-top: 5%;background-color:#F4F4F4;">
@@ -129,15 +129,16 @@ if (isset($_POST['valider']))
           ($liste=="Choix simple" and !empty($_POST['champs']) and Validerreponse($_POST['champs'])!=false and !empty($_POST['sels']) ) or ($liste=="Choix Multiple" and !empty($_POST['champs'])and Validerreponse($_POST['champs'])!=false and !empty($_POST['sels']) ) )
 
         {
+          
            $data[$pos][0]=$_POST;
         // debut d enregistrement 
             $contenu_json = json_encode(array_values($data));
                              
 file_put_contents('../json/quest.json', $contenu_json);
 
-   ?>
+   
               
-       <script type="text/javascript" >
+     echo   '<script type="text/javascript" >
             let q=document.getElementById("qu");
             let s=document.getElementById("sc");
            
@@ -147,7 +148,7 @@ file_put_contents('../json/quest.json', $contenu_json);
            
            
           </script>';
-      <?php 
+      
 //  recharger la page : 
 //header('Location:listequestions.php');           
                       // fin d'enregistrement 
@@ -155,7 +156,9 @@ file_put_contents('../json/quest.json', $contenu_json);
             $tempArray=array();
             $inp = file_get_contents('../json/quest.json');
             $tempArray = json_decode($inp,true);
-            //var_dump($tempArray);
+            echo "$pos";
+
+           // var_dump($tempArray);
         }
         else
         {
@@ -191,6 +194,15 @@ $tempArray = json_decode($inp,true);
            }
 
        return $pos;          
+}
+function Validerreponse($tab) {
+  $nb=count($tab);
+  if ($nb>=2) {
+   return true ;
+  } else {
+    return false ;
+  }
+  
 }
  ?>
 </body>

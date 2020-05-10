@@ -45,6 +45,20 @@ if (isset($_POST['valider']))
           ($liste=="Choix simple" and !empty($_POST['champs']) and Validerreponse($_POST['champs'])!=false and !empty($_POST['sels']) ) or ($liste=="Choix Multiple" and !empty($_POST['champs'])and Validerreponse($_POST['champs'])!=false and !empty($_POST['sels']) ) ) 
 
         {
+
+
+           unset( $_SESSION['question']) ;
+
+    $inp = file_get_contents('../json/quest.json');
+     $Questions= json_decode($inp,true);
+     $nb=count($Questions);
+     if ($nb==0) {
+      $_POST['id']=1;
+     }
+
+     else{
+      $_POST['id']=$nb+1;
+     }
            $_SESSION['question'][]=$_POST;
         // debut d enregistrement 
                       try {
@@ -86,7 +100,9 @@ if (isset($_POST['valider']))
            
            
           </script>';
-      <?php 
+          
+      <?php
+      unset( $_SESSION['question']) ;
 
             $tempArray=array();
             $inp = file_get_contents('../json/quest.json');

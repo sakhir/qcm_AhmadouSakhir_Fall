@@ -70,10 +70,11 @@ margin-left: 2%;
 
 #bleu { 
   border:2px solid  #51BFD0;
-  height:450px;
+  height:auto;
   width: 60%;
   border-radius: 8%;
   margin-left: 2%;
+  
 
 }
 .gauche {
@@ -84,7 +85,7 @@ width:20%;
   border-top-right-radius:2%;*/
   position: absolute;
   margin-top: -35%;
-  margin-left: 43%;  
+  margin-left: 45%;  
 }
 
 .login-head {
@@ -165,7 +166,8 @@ float: left;
   margin-top: -5%;
   position: relative;
   width: 126%;
-  height: 500px;
+  height: auto;
+  padding-bottom: 100px;
  /*display: flex;*/
 /*display: -webkit-flex;*/
 
@@ -256,6 +258,94 @@ ul {
     padding: 0;
     margin: 0;
 }
+
+.quest {
+  width: 80%; 
+  height: auto;
+  margin-left: 10%;
+  margin-top: 2%; 
+  border-radius: 1px;
+  background-color:#F4F4F4;font-size: 160%;
+  text-align:center;
+  border:1px solid #51BFD0;
+  position: relative;
+}
+.recap {
+  width: 95%; 
+  height: auto;
+  margin-left: 2%;
+  margin-top:2%; 
+  border-radius: 1px;
+  background-color:#F4F4F4;font-size: 120%;
+  /*text-align:center;*/
+  border:1px solid #51BFD0;
+}
+.nonrep {
+  width: 95%; 
+  height: auto;
+  margin-left: 2%;
+  margin-top:2%; 
+  border-radius: 1px;
+  background-color:#F4F4F4;font-size: 120%;
+  /*text-align:center;*/
+  border:1px solid #51BFD0;
+}
+.score {
+  background-color:#F4F4F4;
+  margin-left: 75%;
+  width: 15%;
+  font-weight: bold;
+  font-size:30px;
+  margin-top:0.25%; 
+  border:1px solid #51BFD0;
+}
+#sv {
+  background-color:#51BFD0; width: 20%;
+  height: 45px;margin-top:5%;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  margin-left:20%;
+  position: relative;
+}
+
+#ter {
+  background-color:#042425; width: 13%;
+  height: 45px;margin-top:3.5%;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  margin-left:40%;
+  position: absolute;
+}
+#quit {
+  background-color:#042425; width: 13%;
+  height: 45px;margin-top:3%;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  margin-left:20%;
+  position: absolute;
+}
+#val {
+  background-color:#042425; width: 20%;
+  height: 45px;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  margin-left:45%;
+  position: relative;
+}
+#pr {
+  background-color:#828180; width: 22%;
+  height: 45px;margin-top:5%;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  margin-left:10%;
+  position: relative;
+}
+
 /* fin style inscription */
 /* ---------------------------------------------------
     MEDIAQUERIES
@@ -271,7 +361,7 @@ ul {
   
    border-top-left-radius: 8%;
    border-top-right-radius:8%;
-   margin-top: -35%;
+   margin-top: -36%;
    margin-left: 45%;
    height: auto;
    position: absolute;
@@ -287,7 +377,7 @@ ul {
   display: none;
   border-top: 1px solid #bbb;
   padding: 15px;
-  height: 150px;
+  height: auto;
 }
     
   .deconnect 
@@ -318,7 +408,9 @@ width: 100%;
 .droite {
 width:80%;
 margin-left: 2%;
-margin-top:4%;
+margin-top: 4%;
+
+
 
 }
 
@@ -327,12 +419,17 @@ margin-top:4%;
 }
 #bleu { 
   border:2px solid  #51BFD0;
-  height:450px;
+  height:auto;
   width: 60%;
   border-radius: 8%;
   margin-left: 2%;
+  height: auto;
+  padding-bottom: 90px;
 
 }
+.droite-content  { 
+ height: auto;
+ }
 
 }
 
@@ -398,14 +495,16 @@ margin-top: 40%;
 }
 #bleu { 
   border:2px solid  #51BFD0;
-  height:450px;
+  height:auto;
   width: 90%;
   border-radius: 8%;
   margin-left: 2%;
 
 }
 
-
+ .droite-content  { 
+ height: auto;
+ }
 }
 
 /* fin 320px */
@@ -444,7 +543,7 @@ margin-top: 40%;
     color:white;
     background-color: #3addd6;
     border-radius: 6px;
-    width: 40%;
+    width: 30%;
     height: 40px;
     margin-top: 5%;
     margin-left: 60%;
@@ -464,8 +563,8 @@ margin-top: -15%;
     margin-top: 15%;
   }
 .droite {
-width:72%;
-margin-left: 2%;
+width:80%;
+margin-left: 1%;
 margin-top:4%;
 
 }
@@ -475,17 +574,44 @@ margin-top:4%;
 }
 #bleu { 
   border:2px solid  #51BFD0;
-  height:450px;
-  width: 60%;
+  height:auto;
+  width: 55%;
   border-radius: 8%;
   margin-left: 2%;
-
+padding-bottom: 14px;
 }
 .tabl td {
   font-size: 12.5px;
   font-weight: bold;
-}
  
+}
+#sv {
+  background-color:#51BFD0; width: 25%;
+  height: 45px;margin-top:1%;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  margin-left:20%;
+  position: relative;
+}
+#ter {
+  background-color:#042425; width: 13%;
+  height: 45px;margin-top:1%;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  margin-left:30%;
+  position: absolute;
+}
+#pr {
+  background-color:#828180; width: 32%;
+  height: 45px;margin-top:1%;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  margin-left:1%;
+  position: relative;
+}
 }
 
 
