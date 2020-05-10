@@ -2,18 +2,12 @@
 <html>
 <head>
 	<title> Page Authentification</title>
-	<link rel="stylesheet" type="text/css" href="css/connexion.css">
+	<link rel="stylesheet" type="text/css" href="css/connexion.css?v=1">
 </head>
 <body>
 <div id="container">
 
-  <header>
-           <nav>  
-             <img id="logosa" src="Images/logo-QuizzSA.png">
-             <span> Le Plaisir de jouer </span> 
-          </nav>
-           
-  </header>  
+ <?php include("src/header1.php"); ?>  
 
  <div class="inset">
   <div class="login-head">
@@ -86,7 +80,6 @@ session_start();
   $login=htmlspecialchars($_POST['login']);
   $mdp=$_POST['mdp'];
 
- 
  $trouveloginadmin=ChercheLogin($login,'json/admin.json');
  $trouveloginjoueur=ChercheLogin($login,'json/joueurs.json');
 
@@ -111,9 +104,9 @@ session_start();
                        $_SESSION['nom']= $tab[$pos]['nom'];
                        $_SESSION['avatar']=$tab[$pos]['avatar'];
                        $_SESSION['user']=true;
-                       $_SESSION['profil']="admin";
-                        $_SESSION['statut']=="oui";
-                     
+                       $_SESSION['profil']='admin';
+                       $_SESSION['statut']=="oui";
+                       header('location:src/listequestions.php');
               
                      }
                 else { 
@@ -135,7 +128,8 @@ session_start();
                         $_SESSION['nom']   = $tab[$pos]['nom'];
                         $_SESSION['avatar']=$tab[$pos]['avatar'];
                         $_SESSION['user']  =true;
-                        $_SESSION['profil']="joueur";
+                        $_SESSION['profil']='joueur';
+                        $_SESSION['login']=$log;
                         header('location:src/EspaceJoueur.php');
               
                      }

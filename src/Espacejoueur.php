@@ -76,13 +76,13 @@ $min = 1;
 $max = $nbr-1;
 $nb = 5;
 // je vais recuperer le les id de questions deja joues 
- $inp = file_get_contents('../json/qjou.json');
+/* $inp = file_get_contents('../json/qjou.json');
                 $dat= json_decode($inp,true);
                 $tabrep=array();
      $po=TrouvePositionLogin($_SESSION['login'],'../json/qjou.json');
      $tabrep=$dat[$po]['tab'];
      $nrep=count($tabrep);        
-
+*/
 $_SESSION['choisi'] = array();
 for ($i = 0; $i<$nb; $i++){
     while (in_array($a = mt_rand($min, $max), $_SESSION['choisi']) );
