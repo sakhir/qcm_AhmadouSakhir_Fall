@@ -47,13 +47,7 @@ if (!isset($_SESSION['user']) || $_SESSION['profil']==='admin' ) {
               
               <?php
 
- if (isset($_POST['ok'])) {
-   $_SESSION['nbrq']=intval($_POST['nbrq']);
- }
- else {
-  $_SESSION['nbrq']=5;
- }
-
+ 
    $inp = file_get_contents('../json/quest.json');
                 $Quest= json_decode($inp,true);
                 

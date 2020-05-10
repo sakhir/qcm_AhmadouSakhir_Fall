@@ -130,7 +130,7 @@ session_start();
                         $_SESSION['user']  =true;
                         $_SESSION['profil']='joueur';
                         $_SESSION['login']=$log;
-                        header('location:EspaceJoueur.php');
+                        header('location:espacejoueur.php');
               
                      }
                 else { 

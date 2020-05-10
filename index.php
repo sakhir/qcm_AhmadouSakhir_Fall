@@ -7,7 +7,13 @@
 <body>
 <div id="container">
 
- <?php include("src/header1.php"); ?>  
+ <header>
+           <nav>  
+             <img id="logosa" src="Images/logo-QuizzSA.png">
+             <span class="titre"> Le Plaisir de jouer </span> 
+          </nav>
+           
+  </header> 
 
  <div class="inset">
   <div class="login-head">
@@ -28,7 +34,7 @@
       <div class="error-form" id="error-2"> </div>
       <div class="submit">
         <input type="submit"  name="connexion" value="Connexion">
-        <h4><a href="inscription.php">S'inscrire pour jouer ?</a></h4>
+        <h4><a href="src/inscription.php">S'inscrire pour jouer ?</a></h4>
               <div class="clear">  </div> 
       </div>
         
@@ -130,7 +136,7 @@ session_start();
                         $_SESSION['user']  =true;
                         $_SESSION['profil']='joueur';
                         $_SESSION['login']=$log;
-                        header('location:src/EspaceJoueur.php');
+                        header('location:src/espacejoueur.php');
               
                      }
                 else { 
