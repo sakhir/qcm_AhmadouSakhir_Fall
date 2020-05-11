@@ -290,6 +290,17 @@ ul {
   /*text-align:center;*/
   border:1px solid #51BFD0;
 }
+.fin {
+  width: 80%; 
+  height: auto;
+  margin-left: 10%;
+  margin-top: 15%; 
+  border-radius: 1px;
+  background-color:#F4F4F4;font-size: 160%;
+  text-align:center;
+  border:1px solid #51BFD0;
+  
+}
 .score {
   background-color:#F4F4F4;
   margin-left: 75%;
@@ -361,7 +372,7 @@ ul {
   
    border-top-left-radius: 8%;
    border-top-right-radius:8%;
-   margin-top: -36%;
+   margin-top: -35%;
    margin-left: 45%;
    height: auto;
    position: absolute;

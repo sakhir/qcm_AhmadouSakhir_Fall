@@ -1,16 +1,38 @@
 
+<?php 
+       
+        $inp = file_get_contents('../json/nombre.json');
+        $tab= json_decode($inp,true);
+        $nb=intval($tab[0]['nombre']);
+        
+        ?>
 <!--menu side bar-->
   
+
   <div class="droite">
      <div class="droite-content">
       <div class="haut">
-        <form method="post" action="Espacejoueur.php"> 
+        <form method="post"> 
        <label style="font-size: 20px;">Nbre de question/jeu </label>
-       <input type="text" name="nbrq" value="5" style="width: 10%;height: 15%;">
+       <!-- <input type="text" name="nbrq" value="5" style="width: 10%;height: 15%;"> -->
+       <input type="number"  name="nombre"  value="<?php echo $nb ?>" min="5" style="width: 10%; height:15%;" >
        <input type="submit" name="ok" value="OK" style="background-color:#5e90af;font-size: 20px;color: white; ">
        </form>
       </div>
+   <?php 
+        if (isset($_POST['ok'])) {
+        $inp = file_get_contents('../json/nombre.json');
+        $tab= json_decode($inp,true);
+        $tab[0]['nombre']=intval($_POST['nombre']);
+        $contenu_json = json_encode(array_values($tab));
+        file_put_contents('../json/nombre.json', $contenu_json);
+        echo '<script type="text/javascript">alert("nombre mis a jour");</script>';
+        }
+        
+        ?>
        <div id="bleu">
+
+       
          <!-- debut des questions -->
          <?php 
  // partie liste questions:
@@ -130,6 +152,8 @@ echo $pagerContainer;
 ?>
 
         <!--  fin des questions  -->
+
+
        </div>
 
      </div>

@@ -1,3 +1,4 @@
+
 <?php
  session_start();
 // si l'utilisateur n'est pas loggué ou s'il ne dois pas avoir accès à ce script
@@ -15,10 +16,10 @@ if (!isset($_SESSION['user']) || $_SESSION['profil']==='admin' ) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Espace Joueur</title>
+   <title> Espace Joueur</title>
 
  
-	<link rel="stylesheet" type="text/css" href="../css/Espjoueur.css?v=1">
+   <link rel="stylesheet" type="text/css" href="../css/Espjoueur.css?v=1">
 
 </head>
 <body>
@@ -37,7 +38,13 @@ if (!isset($_SESSION['user']) || $_SESSION['profil']==='admin' ) {
      <button class="deconnect" type="button" name="deconnect" value="Deconnexion"><a style="text-decoration: none;color:white;" href="deconnect.php"> Deconnexion</a></button>
          
   </div>
-
+<?php 
+       
+        $inp = file_get_contents('../json/nombre.json');
+        $tab= json_decode($inp,true);
+        $nq=intval($tab[0]['nombre']);
+        
+        ?>
   <div id="milieu">
      
     <div class="droite">
@@ -49,54 +56,88 @@ if (!isset($_SESSION['user']) || $_SESSION['profil']==='admin' ) {
 
  
    $inp = file_get_contents('../json/quest.json');
-                $Quest= json_decode($inp,true);
+                $nquest= json_decode($inp,true);
                 
                   $index=0;
-                $nbr=count($Quest);
-                  //$random_keys=rand(0, (count($Questions)-1));
-     // choisir aleatoirement 5 nombre entre un et le nombre de question
+                $nbr=count($nquest);
 
 
-
-if (isset($_SESSION['choisi'])) {
-for ($i=0; $i <5 ; $i++) { 
-  $Questions[$i]=$Quest[$_SESSION['choisi'][$i]];
-}
-
-}
- 
-else {
-$min = 1;
-$max = $nbr-1;
-$nb = 5;
 // je vais recuperer le les id de questions deja joues 
-/* $inp = file_get_contents('../json/qjou.json');
+ $inp = file_get_contents('../json/qjou.json');
                 $dat= json_decode($inp,true);
                 $tabrep=array();
      $po=TrouvePositionLogin($_SESSION['login'],'../json/qjou.json');
+     if ($po==-1) {
+       $qjoues = array('login' =>$_SESSION['login'],
+                  'tab' =>$tabrep );
+        
+        var_dump($qjoues);
+       array_push( $dat,$qjoues);
+        $contenu_json = json_encode($dat);
+        file_put_contents('../json/qjou.json', $contenu_json);
+        $po=TrouvePositionLogin($_SESSION['login'],'../json/qjou.json');
+     }
+
      $tabrep=$dat[$po]['tab'];
      $nrep=count($tabrep);        
-*/
-$_SESSION['choisi'] = array();
-for ($i = 0; $i<$nb; $i++){
-    while (in_array($a = mt_rand($min, $max), $_SESSION['choisi']) );
-    $_SESSION['choisi'][]=$a;
 
-}
-for ($i=0; $i <5 ; $i++) { 
-  $Questions[$i]=$Quest[$_SESSION['choisi'][$i]];
-}
-//var_dump($Questions);
 
-} 
-    //
-$_SESSION['quest']=$Questions;
-$nbr1=count($Questions);
+// on va mettre dans une variable $nquestions les qjuestions qui devvront s afficher 
+if (isset($_SESSION['choisi'])) {
+unset($_SESSION['choisi']);
+}
+
+$_SESSION['choisi']=array();
+
+//var_dump($tabrep);
+$f=false;
+$i=0;
+$a=1;
+while ($f==false ) { 
+          
+            
+           if ( verif($a,$tabrep)==false) 
+           {
+           $_SESSION['choisi'][$i]=$a;
+            $i++;
+           }
+           if (count($_SESSION['choisi'])==$nq or $a==($nbr-1) ){
+            $f=true;
+           }
+           $a++;
+      }
+//var_dump($_SESSION['choisi']);      
+/*$min = 1;
+$max = $nbr-1;    
+      for ($i = 0; $i<5; $i++){
+    while (in_array($a = mt_rand($min, $max), $choisi) and in_array($a,$tabrep));
+    $choisi[]=$a;
+
+}*/
+
+
+if (count($_SESSION['choisi'])==$nq) 
+  {
+   for ($i=0; $i <$nq ; $i++) 
+   { 
+  $nquestions[$i]=$nquest[$_SESSION['choisi'][$i]];
+   }
+
+
+  }
+  else {
+    $nquestions=array();
+  }
+
+
+if (count($nquestions)==$nq) {
+$_SESSION['quest']=$nquestions;
+$nbr1=count($nquestions);
 
  // a partir de la on va commencer la pagination                  
 
 $page = ! empty( $_GET['page'] ) ? (int) $_GET['page'] : 1;
-$total = count($Questions);  
+$total = count($nquestions);  
 $limit = 1; //par page    
 $totalPages = ceil( $total/ $limit ); 
 $page = max($page, 1); 
@@ -104,7 +145,7 @@ $page = min($page, $totalPages);
 $offset = ($page - 1) * $limit;
 if( $offset < 0 ) $offset = 0;
 
-$Questions= array_slice($Questions, $offset, $limit );
+$nquestions= array_slice($nquestions, $offset, $limit );
 
   
 // fin pagination  
@@ -112,29 +153,31 @@ $Questions= array_slice($Questions, $offset, $limit );
 
                   echo '<div class="quest" >';
                   echo '<span style="text-decoration : underline; font-size:50px;font-weight:bold;margin-bottom:5px;">';
-                    echo ' Question '.($page).'/'.$nbr1;
+                    echo ' Question '.($page).'/'.$nq;
                   echo '</span>';
                   echo "<br>"; 
                   
-                  echo $Questions[$index][0]['question'];
+                  echo $nquestions[$index][0]['question'];
                     
                   echo '</div>';
                    ?>
                   <div for="score" class="score" >  
-                  <?php echo $Questions[$index][0]['score']; echo " pts"; ?>
+                  <?php echo $nquestions[$index][0]['score']; echo " pts"; ?>
                     </div>
                     <?php 
                     echo '<form method="post">';
                  // si le choix est simple 
                   echo "<h2>";
-                    if ($Questions[$index][0]['liste']=="Choix simple") {
+                    if ($nquestions[$index][0]['liste']=="Choix simple") {
                           
                           
-                           for($i=0; $i < count($Questions[$index][0]['champs']) ; $i++)
+                           for($i=0; $i < count($nquestions[$index][0]['champs']) ; $i++)
                             { 
-                       echo '<input type="radio" name="answera[]" value='.$i.' style="margin-left:40%"'; if(isset($_POST["answera"][$i])) echo 'checked="checked"'; echo '/>  ';
+                              ?>
+                       <input type="radio" name="answera[]" value="<?php echo $i ?>" style="margin-left:40%;" <?php if(isset($_POST["answera"][$i])) echo 'checked="checked"'; ?> />  
+                       <?php
 
-                           echo $Questions[$index][0]['champs'][$i];echo "<br><br>";
+                           echo $nquestions[$index][0]['champs'][$i];echo "<br><br>";
                                }
                            //  echo '</form>'; 
 
@@ -144,13 +187,16 @@ $Questions= array_slice($Questions, $offset, $limit );
                     
                    // si le choix est multiple
                     echo "<h2>";  
-                    if ($Questions[0][0]['liste']=="Choix Multiple") {
+                    if ($nquestions[0][0]['liste']=="Choix Multiple") {
 
                           //echo '<form method="post">';
                         
-                           for($i=0; $i < count($Questions[$index][0]['champs']) ; $i++)
-                            {                            echo '<input type="checkbox" name="answerc[]" value='.$i.' style="margin-left:40%"/>';
-                           echo $Questions[$index][0]['champs'][$i];echo "<br><br>";
+                           for($i=0; $i < count($nquestions[$index][0]['champs']) ; $i++)
+                            { ?> 
+
+                        <input type="checkbox" name="answerc[]" value="<?php echo $i ?>" style="margin-left:40%" <?php if(isset($_POST['answerc'][$i])) echo 'checked="checked"'; ?> />
+                        <?php
+                           echo $nquestions[$index][0]['champs'][$i];echo "<br><br>";
                                }
                              //echo '</form>';    
                           }
@@ -158,7 +204,7 @@ $Questions= array_slice($Questions, $offset, $limit );
 
                     // si le choix est texte
                      echo "<h2>";   
-                    if ($Questions[$index][0]['liste']=="Choix texte") {
+                    if ($nquestions[$index][0]['liste']=="Choix texte") {
                       $t=1;
                       //echo '<form method="post">';
                       echo '<div style="margin-left:10%;margin-top:8%;padding-bottom:4%;">';
@@ -206,11 +252,32 @@ echo $pagerContainer;
 echo '<input  type="submit" id="quit"  name="quitter" value="Quitter">';
 echo '</form>';
 // fin de la pagination 
+  
+  }  
+
+  else{
+
+       echo '<div class="fin">';
+   echo "</h2>Vous avez quasiment joue a toute les questions ,bref revenez quand il y aura de nouvelles questions , merci </h2>";
+   echo '<div>';
+   //unset($_SESSION['choisi']);
+
+
+  }
+    
+$_SESSION['no']=$nq;
 
 // fonction qui verifie si l utilisateur a donne une reponse ou non 
 
 
 ?>
+
+
+
+
+
+
+
 
 <?php
 
@@ -335,9 +402,9 @@ $score=$data[$pos]['score'];
   
               </div>
       
-          </div>
+          </div><!--  fin div score -->
       
-        </div>
+        </div> <!-- fin div milieu  -->
    
      </div>
 
@@ -379,7 +446,17 @@ $tempArray = json_decode($inp,true);
 
        return $pos;          
 }
+ function verif($el,$tab) {
+  $t=false;
+  for ($i=0; $i <count($tab) ; $i++) { 
+    if ($tab[$i]==$el) {
+      $t=true;
+      break;
+    }
 
+  }
+  return $t;
+ }
 //http://localhost/sacademy/TP3GIT/Miniprojetqm/src/EspaceJoueur.php
  ?>
 

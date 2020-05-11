@@ -34,28 +34,29 @@
            echo '</form>';
  if (isset($_POST['oui'])) {
 
-$json_data = file_get_contents('../json/gamers.json');
+$json_data = file_get_contents('../json/joueurs.json');
 $data = json_decode($json_data, true);
 // on vas supprimer ici 
 if (isset($_GET['id'])) {
 $id=$_GET['id'];
-$pos=TrouvePositionLogin($id,'../json/gamers.json');
+$pos=TrouvePositionLogin($id,'../json/joueurs.json');
 unset($data[$pos]);
+
 
 $contenu_json = json_encode(array_values($data));
                              
-file_put_contents('../json/gamers.json', $contenu_json);
+file_put_contents('../json/joueurss.json', $contenu_json);
 echo '<script type="text/javascript">alert("Supression reuissie");</script>';
 
 //  recharger la page : 
-header('Location:Listejoueurs.php'); 
+header('Location:listejoueurs.php'); 
 }
  }
 
 if (isset($_POST['non'])) { 
 
 //  recharger la page : 
-header('Location:Listejoueurs.php'); 
+header('Location:listejoueurs.php'); 
 }
 
 

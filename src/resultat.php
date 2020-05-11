@@ -241,11 +241,15 @@ $t=array() ;
  $qjoues = array('login' =>$lo,
                   'tab' =>$t );
 
- for ($i=0; $i <count($Questions) ; $i++) { 
+ /*for ($i=0; $i <count($Questions) ; $i++) { 
    if (isset($Questions[$i][0]['id'])) {
     array_push($qjoues['tab'], $Questions[$i][0]['id']);
    }
- }
+ }*/
+ for ($i=0; $i <count($_SESSION['choisi']) ; $i++) { 
+ array_push($qjoues['tab'], $_SESSION['choisi'][$i]);
+}
+ 
 // enregistrement 
 
  //var_dump($qjoues);
@@ -257,39 +261,45 @@ $t=array() ;
         if (isset($_POST['valider'])) {
 
          // ici je vais essayer d enregistrer les questions jouues par l utilisateur 
-          try {
+          try { 
+
+                     
+
+
                         // On essayes de récupérer le contenu existant
                             $s_fileData = file_get_contents('../json/qjou.json');
                              
                             if( !$s_fileData || strlen($s_fileData) == 0 ) {
                                 // On crée le tableau JSON
                                 $tableau_pour_json = array();
+                                array_push( $tableau_pour_json,$qjoues);
                             } else {
+
+
                                 // On récupère le JSON dans un tableau PHP
                                 $tableau_pour_json = json_decode($s_fileData, true);
+                                if (LoginExist($lo,'../json/qjou.json')==true) 
+                               {
+                              $p=TrouvePositionLogin($lo,'../json/qjou.json');
+
+                            for ($j=0; $j <count($qjoues['tab']) ; $j++) { 
+                                 array_push( $tableau_pour_json[$p]['tab'],$qjoues['tab'][$j]);    
+                                
+                                }
                             }
-                             
-                            // On ajoute le nouvel élement
-                            $n=count($tableau_pour_json);
-                            if ($n==0) {
+                            else
+                            {
                               array_push( $tableau_pour_json,$qjoues);
                             }
-                            else {
-                              for ($i=0; $i <$n ; $i++) { 
-                                if ($tableau_pour_json[$i]['login']=="$lo") {
-                                    for ($j=0; $j <$qjoues['tab'][$j] ; $j++) { 
-                                 array_push( $tableau_pour_json[$i]['tab'],$qjoues['tab'][$j]);    
-                                
-                                    }
-                                                
-                                }
-                                else {
-                                    array_push( $tableau_pour_json,$qjoues);
-                                    break;         
-                                    }
-                              }
-                            }
+                          }
+                             
 
+//  esssayons  de voir dabord si l utilsateur existe deja dan la bas 
+                            
+
+                            // On ajoute le nouvel élement
+                           
+                            
                             
                               
 
@@ -299,7 +309,7 @@ $t=array() ;
                             // On stocke tout le JSON
                             file_put_contents('../json/qjou.json', $contenu_json);
 
-                          unset($contenu_json);
+                          //unset($contenu_json);
                       
                         }
                         catch( Exception $e ) {
@@ -449,6 +459,27 @@ $tempArray = json_decode($inp,true);
 
        return $pos;          
 }
+
+function LoginExist($element,$file) {
+  $tempArray=array(); 
+$inp = file_get_contents($file);
+$tempArray = json_decode($inp,true);$tr=false;
+   $nbr=count($tempArray);
+        for ($i=0; $i < $nbr ; $i++) 
+          {
+             if ($tempArray[$i]['login']==$element ) 
+               {
+                  
+                 $tr=true;
+                  break;
+                }
+             
+           }
+
+       return $tr;          
+}
+
+
 function TrouverIndice ($b,$tab) {
   $tr=false;
   for ($i=0; $i <count($tab) ; $i++) { 

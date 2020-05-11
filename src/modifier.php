@@ -27,11 +27,11 @@
        <div id="bleu">
         
            <?php echo '<h2 style="margin-left:20%;"> Modifier le joueur '.$_GET['id'].'  </h2>'; 
-$json_data = file_get_contents('../json/gamers.json');
+$json_data = file_get_contents('../json/joueurs.json');
 $data = json_decode($json_data, true);
            echo "<br>";
       $id=$_GET['id'];
-       $pos=TrouvePositionLogin($id,'../json/gamers.json');
+       $pos=TrouvePositionLogin($id,'../json/joueurs.json');
       $s=$data[$pos]['prenom'];
       $n=$data[$pos]['nom'];
       $co=$data[$pos]['score'];
@@ -67,11 +67,12 @@ if (isset($_POST['modifier'])) {
      $data[$pos]['score']=$_POST['score'];
      $contenu_json = json_encode(array_values($data));
                              
-file_put_contents('../json/gamers.json', $contenu_json);
+file_put_contents('../json/joueurs.json', $contenu_json);
+
 echo '<script type="text/javascript">alert("Modifiation reuissie");</script>';
 
 //  recharger la page : 
-header('Location:Listejoueurs.php'); 
+header('Location:listejoueurs.php'); 
    }
 
    else {

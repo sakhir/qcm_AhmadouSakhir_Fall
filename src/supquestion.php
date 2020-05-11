@@ -46,6 +46,18 @@ unset($data[$pos]);
 $contenu_json = json_encode(array_values($data));
                              
 file_put_contents('../json/quest.json', $contenu_json);
+
+// changer les id 
+
+$json_data = file_get_contents('../json/quest.json');
+$data = json_decode($json_data, true);
+for ($i=0; $i <count($data) ; $i++) { 
+  $data[$i][0]['id']=$data[$i][0]['id']-1;
+}
+$contenu_json = json_encode(array_values($data));
+                             
+file_put_contents('../json/quest.json', $contenu_json);
+
 echo '<script type="text/javascript">alert("Supression reuissie");</script>';
 
 //  recharger la page : 
