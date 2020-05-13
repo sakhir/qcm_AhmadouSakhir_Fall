@@ -8,9 +8,9 @@
 <body>
 <div id="container">
 
-  <?php include("header1.php"); ?>  
+    <?php include("header1.php"); ?>  
 
-   <div class="form-v2-content">
+    <div class="form-v2-content">
      
       <form class="form-detail" method="post" id="myform" enctype="multipart/form-data" >
         <h2>S'inscrire</h2>

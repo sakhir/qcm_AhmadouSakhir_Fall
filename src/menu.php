@@ -18,7 +18,7 @@
                 echo '<li>';
                 }
                 ?>
-                        <a href="listequestions.php">Liste Questions<img src="../images/Icônes/ic-liste.png"> </a>
+                        <a href="listequestions.php">Liste Questions<img src="../images/Icones/ic-liste.png"> </a>
                      </li>
           <?php 
 
@@ -31,7 +31,7 @@
               echo '<li>';
               }
               ?> 
-                        <a href="creationcompte.php">Creer Admin<img src="../images/Icônes/ic-ajout-active.png"> </a>
+                        <a href="creationcompte.php">Creer Admin<img src="../images/Icones/ic-ajout-active.png"> </a>
                         
                     </li>
          <?php       
@@ -44,7 +44,7 @@
             echo '<li>';
             }
             ?> 
-                   <a href="listejoueurs.php">Liste Joueurs <img src="../images/Icônes/ic-liste.png"> </a>
+                   <a href="listejoueurs.php">Liste Joueurs <img src="../images/Icones/ic-liste.png"> </a>
                     </li>
           <?php       
            if ($nav_en_cours =="creerquestion")
@@ -56,7 +56,7 @@
                     echo '<li>';
                     }
                     ?> 
-                        <a href="creerquestion.php">Creer Questions<img src="../images/Icônes/ic-ajout.png"> </a>
+                        <a href="creerquestion.php">Creer Questions<img src="../images/Icones/ic-ajout.png"> </a>
                     </li>
                 </ul>
 

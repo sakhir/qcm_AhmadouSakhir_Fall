@@ -56,10 +56,10 @@ if (!isset($_SESSION['user']) || $_SESSION['profil']==='admin' ) {
 
  
    $inp = file_get_contents('../json/quest.json');
-                $nquest= json_decode($inp,true);
+                $Quest= json_decode($inp,true);
                 
                   $index=0;
-                $nbr=count($nquest);
+                $nbr=count($Quest);
 
 
 // je vais recuperer le les id de questions deja joues 
@@ -92,7 +92,7 @@ $_SESSION['choisi']=array();
 //var_dump($tabrep);
 $f=false;
 $i=0;
-$a=1;
+$a=0;
 while ($f==false ) { 
           
             
@@ -120,24 +120,24 @@ if (count($_SESSION['choisi'])==$nq)
   {
    for ($i=0; $i <$nq ; $i++) 
    { 
-  $nquestions[$i]=$nquest[$_SESSION['choisi'][$i]];
+  $Questions[$i]=$Quest[$_SESSION['choisi'][$i]];
    }
 
 
   }
   else {
-    $nquestions=array();
+    $Questions=array();
   }
 
 
-if (count($nquestions)==$nq) {
-$_SESSION['quest']=$nquestions;
-$nbr1=count($nquestions);
+if (count($Questions)==$nq) {
+$_SESSION['quest']=$Questions;
+$nbr1=count($Questions);
 
  // a partir de la on va commencer la pagination                  
 
 $page = ! empty( $_GET['page'] ) ? (int) $_GET['page'] : 1;
-$total = count($nquestions);  
+$total = count($Questions);  
 $limit = 1; //par page    
 $totalPages = ceil( $total/ $limit ); 
 $page = max($page, 1); 
@@ -145,7 +145,7 @@ $page = min($page, $totalPages);
 $offset = ($page - 1) * $limit;
 if( $offset < 0 ) $offset = 0;
 
-$nquestions= array_slice($nquestions, $offset, $limit );
+$Questions= array_slice($Questions, $offset, $limit );
 
   
 // fin pagination  
@@ -157,27 +157,27 @@ $nquestions= array_slice($nquestions, $offset, $limit );
                   echo '</span>';
                   echo "<br>"; 
                   
-                  echo $nquestions[$index][0]['question'];
+                  echo $Questions[$index][0]['question'];
                     
                   echo '</div>';
                    ?>
                   <div for="score" class="score" >  
-                  <?php echo $nquestions[$index][0]['score']; echo " pts"; ?>
+                  <?php echo $Questions[$index][0]['score']; echo " pts"; ?>
                     </div>
                     <?php 
                     echo '<form method="post">';
                  // si le choix est simple 
                   echo "<h2>";
-                    if ($nquestions[$index][0]['liste']=="Choix simple") {
+                    if ($Questions[$index][0]['liste']=="Choix simple") {
                           
                           
-                           for($i=0; $i < count($nquestions[$index][0]['champs']) ; $i++)
+                           for($i=0; $i < count($Questions[$index][0]['champs']) ; $i++)
                             { 
                               ?>
-                       <input type="radio" name="answera[]" value="<?php echo $i ?>" style="margin-left:40%;" <?php if(isset($_POST["answera"][$i])) echo 'checked="checked"'; ?> />  
+                       <input type="radio" name="answera[]" value="<?php echo $i ;?>" style="margin-left:40%;" <?php if(isset($_SESSION['ch'][$page]) and in_array($i, $_SESSION['ch'][$page])) echo 'checked="checked"'; ?> />  
                        <?php
 
-                           echo $nquestions[$index][0]['champs'][$i];echo "<br><br>";
+                           echo $Questions[$index][0]['champs'][$i];echo "<br><br>";
                                }
                            //  echo '</form>'; 
 
@@ -187,16 +187,16 @@ $nquestions= array_slice($nquestions, $offset, $limit );
                     
                    // si le choix est multiple
                     echo "<h2>";  
-                    if ($nquestions[0][0]['liste']=="Choix Multiple") {
+                    if ($Questions[0][0]['liste']=="Choix Multiple") {
 
                           //echo '<form method="post">';
                         
-                           for($i=0; $i < count($nquestions[$index][0]['champs']) ; $i++)
+                           for($i=0; $i < count($Questions[$index][0]['champs']) ; $i++)
                             { ?> 
 
-                        <input type="checkbox" name="answerc[]" value="<?php echo $i ?>" style="margin-left:40%" <?php if(isset($_POST['answerc'][$i])) echo 'checked="checked"'; ?> />
+                        <input type="checkbox" name="answerc[]" value="<?php echo $i ;?>" style="margin-left:40%" <?php if(isset($_SESSION['ch'][$page])  and in_array($i, $_SESSION['ch'][$page])) echo 'checked="checked"'; ?> />
                         <?php
-                           echo $nquestions[$index][0]['champs'][$i];echo "<br><br>";
+                           echo $Questions[$index][0]['champs'][$i];echo "<br><br>";
                                }
                              //echo '</form>';    
                           }
@@ -204,14 +204,15 @@ $nquestions= array_slice($nquestions, $offset, $limit );
 
                     // si le choix est texte
                      echo "<h2>";   
-                    if ($nquestions[$index][0]['liste']=="Choix texte") {
+                    if ($Questions[$index][0]['liste']=="Choix texte") {
                       $t=1;
                       //echo '<form method="post">';
-                      echo '<div style="margin-left:10%;margin-top:8%;padding-bottom:4%;">';
-                          echo "Donnez la reponse :";
-                       echo '<input type="text" name="textreponse" id='.$t.' style="width:40%; height:30px; border-radius: 20px;background-color:#F4F4F4;"/>';
-                       echo '<div>'; 
-                          
+                      ?>
+                      <div style="margin-left:10%;margin-top:8%;padding-bottom:4%;">
+                         <span>Donnez la reponse : </span>
+                       <input type="text" name="textreponse" id="<?php echo $t ;?>" value="<?php if (isset($_SESSION['ch'][$page]) ) echo htmlentities($_SESSION['ch'][$page]);?>" style="width:40%; height:30px; border-radius: 20px;background-color:#F4F4F4;"/>
+                       <div> 
+                       <?php   
                         }     
                         echo "</h2>";               
 
@@ -290,12 +291,34 @@ if (count($_POST)==1 or (isset($_POST['textreponse']) and $_POST['textreponse']=
   $_SESSION['nonrep'][]=($page);
 }
 
+
+if (isset($_POST['answerc'])) {
+   
+     $_SESSION['ch'][$page]=$_POST['answerc'];
+  }
+if (isset($_POST['answera'])) {
+     $_SESSION['ch'][$page]=$_POST['answera'];
+   }   
+if (isset($_POST['textreponse'])) {
+  $_SESSION['ch'][$page]=$_POST['textreponse'];
+}
+  
   /*echo '<script type="text/javascript" >alert("salut  ")</script>'; */
-  header('location:espacejoueur.php?page='.($page+1));
+header('location:espacejoueur.php?page='.($page+1));
  } 
 
  if (isset($_POST['precedent'])) {
+  if (isset($_POST['answerc'])) {
+   
+     $_SESSION['ch'][$page]=$_POST['answerc'];
+  }
+if (isset($_POST['answera'])) {
+     $_SESSION['ch'][$page]=$_POST['answera'];
+  } 
 
+ if (isset($_POST['textreponse'])) {
+  $_SESSION['ch'][$page]=$_POST['textreponse'];
+}
 
   header('location:espacejoueur.php?page='.($page-1));
  } 

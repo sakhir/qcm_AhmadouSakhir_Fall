@@ -87,11 +87,11 @@ form li{
   margin: 12px 9px 9px 0px;
 }
 .user{
-  background: url(../images/Icônes/ic-login.png) no-repeat 7px 1px;
+  background: url(../images/Icones/ic-login.png) no-repeat 7px 1px;
   
 }
 .lock{
-  background: url("../images/Icônes/ic-lock.png") no-repeat ;
+  background: url("../images/Icones/ic-lock.png") no-repeat ;
 }
 
 input[type="text"], input[type="password"] {

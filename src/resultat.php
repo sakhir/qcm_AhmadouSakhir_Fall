@@ -184,7 +184,7 @@ if ($score>$sc) {
        $i=0;
     while ( isset($_SESSION['nonrep'][$i+1])) {
      echo $Questions[$_SESSION['nonrep'][$i]-1][0]['question'];echo '<img src="../images/faux.png" style="margin-left:10%;" /><br>';
-         if ($Questions[$_SESSION['nonrep'][$i]-1][0]['liste']=="Choix texte") {
+        if ($Questions[$_SESSION['nonrep'][$i]-1][0]['liste']=="Choix texte") {
            echo 'la reponse est : '.$Questions[$_SESSION['nonrep'][$i]-1][0]['texte'].'<br>';
          }
         elseif ($Questions[$_SESSION['nonrep'][$i]-1][0]['liste']=="Choix simple") {
@@ -321,6 +321,7 @@ $t=array() ;
            unset($_SESSION['nonrep']);
            unset($_SESSION['choisi']);
            unset($_SESSION['quest']);
+           unset( $_SESSION['ch']);
            unset($qjoues);
 
 
