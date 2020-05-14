@@ -164,7 +164,7 @@ function Validerreponse($tab) {
       sel.style="background-color:#F4F4F4;border: 0.1em solid #000;border-radius:40%;";
       sel.value=j;
       var sup = document.createElement("img");
-      sup.src = "../Images/Icônes/ic-supprimer.png";
+      sup.src = "../images/icones/supprimer.png";
       // Ajout de l'événement onclick
       sup.onclick = function onclick(event)
          {suppression(this);};
@@ -200,7 +200,7 @@ function Validerreponse($tab) {
       sel.value=j;
 
       var sup = document.createElement("img");
-      sup.src = "../Images/Icônes/ic-supprimer.png";
+      sup.src = "../images/icones/supprimer.png";
       // Ajout de l'événement onclick
       sup.onclick = function onclick(event)
          {suppression(this);};

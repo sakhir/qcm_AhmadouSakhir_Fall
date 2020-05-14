@@ -92,8 +92,8 @@ for ($i=0; $i< $NbrLigne; $i++) {
                 echo $tab[$i]['score'];
                 echo "</td>";
                 echo "<td>";
-                echo '<a href="supprimer.php?id='.$tab[$i]['prenom'].'" style="text-decoration:none;"><img style="width:20%;margin-left:10%;position:relative;" src="../images/Icônes/supp1.png" alt="Supprimer" /></a>';
-                echo '<a href="modifier.php?id='.$tab[$i]['prenom'].'" style="text-decoration:none;"><img style="width:20%;margin-left:15%;position:relative;" src="../images/Icônes/mod.png" /></a>';
+                echo '<a href="supprimer.php?id='.$tab[$i]['prenom'].'" style="text-decoration:none;"><img style="width:20%;margin-left:10%;position:relative;" src="../images/icones/supp1.png" alt="Supprimer" /></a>';
+                echo '<a href="modifier.php?id='.$tab[$i]['prenom'].'" style="text-decoration:none;"><img style="width:20%;margin-left:15%;position:relative;" src="../images/icones/mod.png" /></a>';
                 echo "</td>";
                     
  

@@ -3,7 +3,7 @@
       (isset($_POST['liste'])) ? $liste=$_POST['liste'] : $liste="";
      ?>
 
-     
+
 
   <div class="droite">
      <div class="droite-content">
@@ -42,7 +42,7 @@
    if ($liste=="Choix simple") 
   {
     ?> 
-       <img src="../Images/Icônes/ic-ajout-réponse.png" style="position: absolute;margin-top: 4.3%;margin-left:1%;" onclick="ajoutS(this)">
+       <img src="../images/icones/ajoutreponse.png" style="position: absolute;margin-top: 4.3%;margin-left:1%;" onclick="ajoutS(this)">
  <?php 
   }
 
@@ -50,7 +50,7 @@
 if ($liste=="Choix Multiple") 
   {
     ?>
-       <img src="../Images/Icônes/ic-ajout-réponse.png" style="position: absolute;margin-top: 4.3%;margin-left:1%;" onclick="ajoutM(this)">
+       <img src="../images/icones/ajoutreponse.png" style="position: absolute;margin-top: 4.3%;margin-left:1%;" onclick="ajoutM(this)">
  <?php 
   }
 

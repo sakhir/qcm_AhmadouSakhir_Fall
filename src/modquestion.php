@@ -69,7 +69,7 @@ $pos=TrouvePositionquestion($id,'../json/quest.json');
    if ($liste=="Choix simple") 
   {
     ?> 
-       <img src="../Images/Icônes/ic-ajout-réponse.png" style="position: absolute;margin-top: 4.3%;margin-left:1%;" onclick="ajoutS(this)">
+       <img src="../images/icones/ic-ajout-réponse.png" style="position: absolute;margin-top: 4.3%;margin-left:1%;" onclick="ajoutS(this)">
  <?php 
   }
 
@@ -77,7 +77,7 @@ $pos=TrouvePositionquestion($id,'../json/quest.json');
 if ($liste=="Choix Multiple") 
   {
     ?>
-       <img src="../Images/Icônes/ic-ajout-réponse.png" style="position: absolute;margin-top: 4.3%;margin-left:1%;" onclick="ajoutM(this)">
+       <img src="../images/icones/ic-ajout-réponse.png" style="position: absolute;margin-top: 4.3%;margin-left:1%;" onclick="ajoutM(this)">
  <?php 
   }
 
@@ -129,7 +129,7 @@ if (isset($_POST['valider']))
           ($liste=="Choix simple" and !empty($_POST['champs']) and Validerreponse($_POST['champs'])!=false and !empty($_POST['sels']) ) or ($liste=="Choix Multiple" and !empty($_POST['champs'])and Validerreponse($_POST['champs'])!=false and !empty($_POST['sels']) ) )
 
         {
-          
+           
            $data[$pos][0]=$_POST;
         // debut d enregistrement 
             $contenu_json = json_encode(array_values($data));
@@ -232,7 +232,7 @@ function Validerreponse($tab) {
       sel.style="background-color:#F4F4F4;border: 0.1em solid #000;border-radius:40%;";
       sel.value=j;
       var sup = document.createElement("img");
-      sup.src = "../Images/Icônes/ic-supprimer.png";
+      sup.src = "../images/icones/ic-supprimer.png";
       // Ajout de l'événement onclick
       sup.onclick = function onclick(event)
          {suppression(this);};
@@ -268,7 +268,7 @@ function Validerreponse($tab) {
       sel.value=j;
 
       var sup = document.createElement("img");
-      sup.src = "../Images/Icônes/ic-supprimer.png";
+      sup.src = "../images/icones/ic-supprimer.png";
       // Ajout de l'événement onclick
       sup.onclick = function onclick(event)
          {suppression(this);};
