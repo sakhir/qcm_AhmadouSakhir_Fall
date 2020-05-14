@@ -281,13 +281,14 @@ ul {
 }
 .fin {
   width: 80%; 
-  height: auto;
+  height: 250px;
   margin-left: 10%;
-  margin-top: 15%; 
+  margin-top: 10%; 
   border-radius: 1px;
   background-color:#F4F4F4;font-size: 160%;
   text-align:center;
   border:1px solid #51BFD0;
+  padding-top: 50px;
   
 }
 .score {
